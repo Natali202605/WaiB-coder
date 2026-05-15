@@ -1,0 +1,37 @@
+/* GSAP split — главный заголовок hero */
+
+.hero__title--split [data-hero-split] {
+  opacity: 0;
+}
+
+.hero__title--split.is-split-ready [data-hero-split] {
+  opacity: 1;
+}
+
+.hero__title--split .split-char,
+.hero__title--split .split-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.hero__title--split .split-char--space {
+  width: 0.28em;
+}
+
+.hero__title-line2 .split-word {
+  background: var(--gradient-hero-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title--split [data-hero-split] {
+    opacity: 1;
+  }
+
+  .hero__title--split .split-char,
+  .hero__title--split .split-word {
+    will-change: auto;
+  }
+}

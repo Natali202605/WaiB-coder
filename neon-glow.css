@@ -1,0 +1,663 @@
+/* Неоновая подсветка блоков и секций — фиолетово-синяя палитра */
+
+/* —— Секции: мягкое свечение при появлении —— */
+.about,
+.services,
+.approach,
+.projects,
+.reviews,
+.why,
+.stack,
+.audience,
+.manifest,
+.cta {
+  position: relative;
+  isolation: isolate;
+}
+
+.about::after,
+.services::after,
+.approach::after,
+.projects::after,
+.reviews::after,
+.stack::after,
+.audience::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem -0.25rem;
+  z-index: -1;
+  border-radius: calc(var(--radius-lg) + 8px);
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(124, 58, 237, 0.48), transparent 68%),
+    radial-gradient(ellipse 70% 45% at 85% 90%, rgba(96, 165, 250, 0.38), transparent 65%);
+  transition: opacity 0.7s var(--ease-out-expo);
+}
+
+.why::after,
+.manifest::after,
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: -0.35rem;
+  z-index: -1;
+  border-radius: calc(var(--radius-lg) + 6px);
+  pointer-events: none;
+  opacity: 0;
+  box-shadow:
+    0 0 100px rgba(124, 58, 237, 0.55),
+    0 0 160px rgba(96, 165, 250, 0.38);
+  transition: opacity 0.7s var(--ease-out-expo);
+}
+
+.about.scroll-reveal.is-visible::after,
+.services.scroll-reveal.is-visible::after,
+.approach.scroll-reveal.is-visible::after,
+.projects.scroll-reveal.is-visible::after,
+.reviews.scroll-reveal.is-visible::after,
+.why.scroll-reveal.is-visible::after,
+.stack.scroll-reveal.is-visible::after,
+.audience.scroll-reveal.is-visible::after,
+.manifest.scroll-reveal.is-visible::after,
+.cta.scroll-reveal.is-visible::after {
+  opacity: 1;
+}
+
+[data-theme="light"] .about::after,
+[data-theme="light"] .services::after,
+[data-theme="light"] .approach::after,
+[data-theme="light"] .projects::after,
+[data-theme="light"] .reviews::after,
+[data-theme="light"] .stack::after,
+[data-theme="light"] .audience::after {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(124, 58, 237, 0.2), transparent 68%),
+    radial-gradient(ellipse 70% 45% at 85% 90%, rgba(59, 130, 246, 0.14), transparent 65%);
+}
+
+/* —— Панели с неоновой рамкой —— */
+.card,
+.project,
+.reviews-panel,
+.about__list-wrap,
+.step,
+.why,
+.audience,
+.contacts,
+.cta__card,
+.manifest__frame {
+  position: relative;
+  border-color: var(--neon-border);
+  box-shadow: var(--neon-shadow-lg);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.4s var(--ease-out-expo),
+    transform 0.4s var(--ease-out-expo);
+}
+
+.card::before,
+.project::before,
+.reviews-panel::before,
+.about__list-wrap::before,
+.step::before,
+.why::before,
+.audience::before,
+.cta__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--neon-blue) 0%,
+    var(--neon-violet) 35%,
+    var(--neon-lilac) 65%,
+    var(--neon-blue) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 1;
+  animation: neon-border-flow 5s ease infinite;
+  filter: saturate(1.65) brightness(1.08);
+}
+
+.reviews-panel::before {
+  z-index: 1;
+}
+
+/* Контакты — усиливаем уже существующую градиентную рамку */
+.contacts::before {
+  background: linear-gradient(
+    135deg,
+    var(--neon-blue) 0%,
+    var(--neon-violet) 40%,
+    var(--neon-lilac) 70%,
+    var(--neon-blue) 100%
+  );
+  background-size: 200% 200%;
+  opacity: 0.82;
+  animation: neon-border-flow 6s ease infinite;
+  filter: saturate(1.35);
+}
+
+/* Контент поверх неоновой рамки */
+.card > *,
+.project__body,
+.project__media,
+.reviews-panel > *,
+.review > *,
+.step__body,
+.step__index,
+.why__grid,
+.audience__head,
+.audience__list,
+.contacts > *,
+.cta__card > *,
+.manifest__quote,
+.hero__photo-img,
+.hero__photo-glow,
+.about__list-wrap > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Усиление при появлении и наведении */
+.card.scroll-reveal.is-visible,
+.project.scroll-reveal.is-visible,
+.reviews-panel.scroll-reveal.is-visible {
+  box-shadow: var(--neon-shadow-lg);
+}
+
+.card:hover,
+.project:hover,
+.project.is-hovered,
+.reviews-panel:hover,
+.about__list-wrap:hover,
+.step:hover,
+.audience:hover,
+.contacts:hover,
+.cta__card:hover,
+.manifest__frame:hover {
+  border-color: var(--neon-border-strong);
+  box-shadow: var(--neon-hover);
+}
+
+.hero__photo-frame {
+  border-color: var(--neon-border-strong);
+  box-shadow:
+    var(--neon-shadow-lg),
+    0 0 80px rgba(124, 58, 237, 0.55),
+    0 0 120px rgba(96, 165, 250, 0.35);
+  filter: saturate(1.25);
+}
+
+.hero:hover .hero__photo-frame {
+  border-color: rgba(233, 213, 255, 0.95);
+  box-shadow:
+    var(--neon-hover),
+    0 0 96px rgba(124, 58, 237, 0.7),
+    0 0 140px rgba(96, 165, 250, 0.45);
+  filter: saturate(1.5);
+}
+
+.hero__photo-glow {
+  opacity: 1;
+  filter: blur(16px) saturate(1.8);
+}
+
+.hero__photo-tag {
+  filter: saturate(1.35);
+}
+
+.card:hover::before,
+.project:hover::before,
+.reviews-panel:hover::before,
+.about__list-wrap:hover::before,
+.step:hover::before,
+.why:hover::before,
+.audience:hover::before,
+.contacts:hover::before,
+.cta__card:hover::before {
+  opacity: 1;
+  filter: saturate(1.5);
+}
+
+.contacts:hover::before {
+  opacity: 1;
+}
+
+/* Секции с заливкой */
+.why.scroll-reveal.is-visible,
+.audience.scroll-reveal.is-visible {
+  box-shadow: var(--neon-shadow-lg);
+}
+
+.why:hover,
+.audience:hover {
+  box-shadow: var(--neon-hover);
+}
+
+/* Шапка при скролле */
+.site-header.is-scrolled .site-header__inner {
+  border-color: var(--neon-border-strong);
+  box-shadow: var(--neon-shadow-md);
+}
+
+/* —— Все кнопки: неоновая подсветка (глобально + по блокам) —— */
+:root {
+  --btn-neon-filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.55))
+    drop-shadow(0 0 22px rgba(96, 165, 250, 0.35));
+  --btn-neon-filter-hover: drop-shadow(0 0 14px rgba(124, 58, 237, 0.72))
+    drop-shadow(0 0 28px rgba(96, 165, 250, 0.48))
+    drop-shadow(0 0 40px rgba(192, 132, 252, 0.28));
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+a.btn,
+.site-header button,
+.hero .btn,
+.hero button,
+.reviews button,
+.reviews .btn,
+.reviews-panel button,
+.reviews-panel .btn,
+.cta .btn,
+.cta button,
+main button,
+main a.btn {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  border-color: var(--neon-border);
+  box-shadow: var(--neon-shadow-sm);
+  filter: saturate(1.12) var(--btn-neon-filter);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.35s var(--ease-out-expo),
+    filter 0.35s var(--ease-out-expo),
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+button:hover:not(:disabled),
+input[type="button"]:hover:not(:disabled),
+input[type="submit"]:hover:not(:disabled),
+input[type="reset"]:hover:not(:disabled),
+a.btn:hover,
+.site-header button:hover:not(:disabled),
+.hero .btn:hover,
+.hero button:hover:not(:disabled),
+.reviews button:hover:not(:disabled),
+.reviews .btn:hover,
+.reviews-panel button:hover:not(:disabled),
+.reviews-panel .btn:hover,
+.cta .btn:hover,
+.cta button:hover:not(:disabled),
+main button:hover:not(:disabled),
+main a.btn:hover {
+  border-color: var(--neon-border-strong);
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 32px rgba(124, 58, 237, 0.55),
+    0 0 52px rgba(96, 165, 250, 0.38);
+  filter: saturate(1.32) var(--btn-neon-filter-hover);
+}
+
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible,
+a.btn:focus-visible,
+.site-header button:focus-visible,
+.hero .btn:focus-visible,
+.reviews-panel button:focus-visible,
+.cta .btn:focus-visible {
+  outline: 2px solid var(--neon-lilac);
+  outline-offset: 3px;
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 28px rgba(167, 139, 250, 0.55);
+  filter: saturate(1.25) var(--btn-neon-filter-hover);
+}
+
+button:active:not(:disabled),
+a.btn:active {
+  box-shadow: var(--neon-shadow-sm);
+  filter: saturate(1.15) var(--btn-neon-filter);
+}
+
+/* Primary */
+.btn--primary,
+a.btn--primary {
+  border-color: rgba(216, 180, 254, 0.55);
+  box-shadow:
+    var(--neon-shadow-lg),
+    var(--shadow-glow),
+    0 0 52px rgba(96, 165, 250, 0.42);
+  filter: saturate(1.3);
+}
+
+.btn--primary:hover,
+a.btn--primary:hover {
+  border-color: rgba(233, 213, 255, 0.9);
+  box-shadow:
+    var(--neon-hover),
+    var(--shadow-soft),
+    0 0 72px rgba(96, 165, 250, 0.58);
+  filter: saturate(1.55);
+}
+
+/* Ghost / вторичные */
+.btn--ghost,
+a.btn--ghost,
+button.btn--ghost {
+  border-color: var(--neon-border);
+  box-shadow: var(--neon-shadow-sm);
+}
+
+.btn--ghost:hover,
+a.btn--ghost:hover,
+button.btn--ghost:hover {
+  border-color: var(--neon-border-strong);
+  color: var(--paper);
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 40px rgba(124, 58, 237, 0.58),
+    0 0 60px rgba(96, 165, 250, 0.4);
+  filter: saturate(1.38);
+}
+
+/* Переключатель темы */
+.theme-switch {
+  border-color: var(--neon-border);
+  box-shadow: var(--neon-shadow-sm);
+}
+
+.theme-switch__btn {
+  border: 1px solid transparent;
+  box-shadow: var(--neon-shadow-sm);
+}
+
+.theme-switch__btn:hover {
+  border-color: rgba(var(--accent-rgb), 0.4);
+  box-shadow:
+    var(--neon-shadow-sm),
+    0 0 22px rgba(124, 58, 237, 0.48),
+    0 0 38px rgba(96, 165, 250, 0.3);
+  filter: saturate(1.25);
+}
+
+.theme-switch__btn.is-active,
+.theme-switch__btn.is-active:hover {
+  border-color: rgba(216, 180, 254, 0.65);
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 36px rgba(124, 58, 237, 0.58),
+    0 0 56px rgba(96, 165, 250, 0.38);
+  filter: saturate(1.4);
+}
+
+.theme-switch__btn:focus-visible {
+  outline: 2px solid var(--neon-lilac);
+  outline-offset: 2px;
+  box-shadow: var(--neon-shadow-md);
+}
+
+/* Точки карусели отзывов */
+.reviews-slider__dot {
+  border: 1px solid var(--neon-border);
+  box-shadow: var(--neon-shadow-sm);
+}
+
+.reviews-slider__dot:hover {
+  border-color: var(--neon-border-strong);
+  box-shadow:
+    var(--neon-shadow-sm),
+    0 0 22px rgba(124, 58, 237, 0.5);
+}
+
+.reviews-slider__dot.is-active,
+.reviews-slider__dot.is-active:hover {
+  border-color: rgba(216, 180, 254, 0.75);
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 18px var(--neon-violet),
+    0 0 36px var(--neon-blue),
+    0 0 48px rgba(192, 132, 252, 0.48);
+  filter: saturate(1.45);
+}
+
+.reviews-slider__dot:focus-visible {
+  outline: 2px solid var(--neon-lilac);
+  outline-offset: 3px;
+  box-shadow: var(--neon-shadow-md);
+}
+
+.skip-link:focus {
+  border-color: var(--neon-border-strong);
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 28px rgba(124, 58, 237, 0.5);
+  filter: var(--btn-neon-filter-hover);
+}
+
+/* —— Шапка —— */
+.site-header .theme-switch {
+  border-color: var(--neon-border);
+  box-shadow: var(--neon-shadow-sm);
+  filter: var(--btn-neon-filter);
+}
+
+.site-header .theme-switch__btn {
+  border: 1px solid transparent;
+  box-shadow: var(--neon-shadow-sm);
+}
+
+.site-header .theme-switch__btn.is-active {
+  box-shadow: var(--neon-shadow-md), 0 0 36px rgba(124, 58, 237, 0.55);
+}
+
+/* —— Hero —— */
+.hero .btn--primary {
+  box-shadow:
+    var(--neon-shadow-lg),
+    var(--shadow-glow),
+    0 0 56px rgba(96, 165, 250, 0.48);
+  filter: saturate(1.35) var(--btn-neon-filter-hover);
+}
+
+.hero .btn--primary:hover {
+  box-shadow: var(--neon-hover), var(--shadow-soft), 0 0 80px rgba(96, 165, 250, 0.62);
+  filter: saturate(1.55) var(--btn-neon-filter-hover);
+}
+
+.hero .btn--ghost {
+  box-shadow: var(--neon-shadow-md), 0 0 28px rgba(124, 58, 237, 0.4);
+}
+
+.hero .btn--ghost:hover {
+  box-shadow: var(--neon-shadow-md), 0 0 44px rgba(124, 58, 237, 0.58), 0 0 64px rgba(96, 165, 250, 0.42);
+}
+
+/* —— Отзывы —— */
+.reviews-panel .reviews-slider__btn {
+  box-shadow: var(--neon-shadow-md), 0 0 24px rgba(124, 58, 237, 0.45);
+}
+
+.reviews-panel .reviews-slider__btn:hover {
+  box-shadow: var(--neon-shadow-md), 0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(96, 165, 250, 0.4);
+}
+
+.reviews-panel .reviews-slider__dot {
+  box-shadow: var(--neon-shadow-sm), 0 0 14px rgba(124, 58, 237, 0.4);
+}
+
+.reviews-panel .reviews-slider__dot.is-active {
+  box-shadow:
+    var(--neon-shadow-md),
+    0 0 20px var(--neon-violet),
+    0 0 40px var(--neon-blue);
+  filter: saturate(1.5) var(--btn-neon-filter-hover);
+}
+
+/* CTA: не обрезать свечение кнопок */
+.cta__card {
+  overflow: visible;
+}
+
+.cta__actions {
+  position: relative;
+  z-index: 3;
+}
+
+/* —— CTA —— */
+.cta .btn--primary {
+  box-shadow:
+    var(--neon-shadow-lg),
+    var(--shadow-glow),
+    0 0 60px rgba(96, 165, 250, 0.5);
+  filter: saturate(1.38) var(--btn-neon-filter-hover);
+}
+
+.cta .btn--primary:hover {
+  box-shadow: var(--neon-hover), 0 0 88px rgba(96, 165, 250, 0.65);
+  filter: saturate(1.58) var(--btn-neon-filter-hover);
+}
+
+.cta .btn--ghost {
+  box-shadow: var(--neon-shadow-md), 0 0 32px rgba(124, 58, 237, 0.45);
+}
+
+.cta .btn--ghost:hover {
+  box-shadow: var(--neon-shadow-md), 0 0 48px rgba(124, 58, 237, 0.62), 0 0 68px rgba(96, 165, 250, 0.45);
+}
+
+/* Бейджи и теги */
+.badge:hover,
+.project__tag,
+.review__tag,
+.hero__photo-tag {
+  box-shadow:
+    0 0 20px rgba(var(--accent-rgb), 0.75),
+    0 0 40px rgba(96, 165, 250, 0.4);
+}
+
+.badges li:hover .badge {
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.65),
+    0 0 24px rgba(124, 58, 237, 0.55),
+    0 0 40px rgba(96, 165, 250, 0.3);
+}
+
+/* Прогресс и навигация */
+.scroll-progress__bar {
+  box-shadow:
+    0 0 16px var(--neon-violet),
+    0 0 32px var(--neon-blue),
+    0 0 48px rgba(192, 132, 252, 0.35);
+}
+
+.nav a.is-active::after {
+  box-shadow:
+    0 0 14px var(--neon-violet),
+    0 0 28px var(--neon-blue),
+    0 0 40px rgba(192, 132, 252, 0.4);
+}
+
+.logo__mark {
+  box-shadow:
+    0 0 18px var(--neon-violet),
+    0 0 36px var(--neon-blue),
+    0 0 52px rgba(192, 132, 252, 0.4);
+}
+
+.logo:hover .logo__mark {
+  box-shadow:
+    0 0 24px var(--neon-violet),
+    0 0 48px var(--neon-blue),
+    0 0 72px rgba(192, 132, 252, 0.5);
+}
+
+/* CTA и манифест — постоянное усиленное свечение */
+.cta__card {
+  box-shadow: var(--neon-shadow-lg);
+}
+
+.manifest__frame.scroll-reveal.is-visible {
+  box-shadow: var(--neon-shadow-lg);
+}
+
+.manifest__stamp {
+  box-shadow:
+    0 0 28px rgba(var(--accent-rgb), 0.8),
+    0 0 48px rgba(96, 165, 250, 0.45);
+}
+
+/* Заголовки секций */
+.section-head.is-visible .section-title--large,
+.scroll-reveal.is-visible .section-head .section-title--large {
+  text-shadow:
+    0 0 32px rgba(124, 58, 237, 0.45),
+    0 0 64px rgba(96, 165, 250, 0.25);
+}
+
+@keyframes neon-border-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::before,
+  .project::before,
+  .reviews-panel::before,
+  .about__list-wrap::before,
+  .step::before,
+  .why::before,
+  .audience::before,
+  .contacts::before,
+  .cta__card::before {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about::after,
+  .services::after,
+  .approach::after,
+  .projects::after,
+  .reviews::after,
+  .why::after,
+  .stack::after,
+  .audience::after,
+  .manifest::after,
+  .cta::after {
+    transition: none;
+  }
+
+  button,
+  a.btn,
+  .theme-switch,
+  .theme-switch__btn,
+  .reviews-slider__dot {
+    filter: none;
+  }
+}

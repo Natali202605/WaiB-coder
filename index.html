@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Портфолио вайб-кодера — сайты, интерфейсы и digital-проекты с характером." />
+  <title>Вайб-кодер — Portfolio</title>
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="bg-creative.css" />
+  <link rel="stylesheet" href="design-upgrade.css" />
+  <link rel="stylesheet" href="neon-glow.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="hero-photo.css" />
+  <link rel="stylesheet" href="hero-title-animation.css" />
+</head>
+<body>
+  <div class="bg-base" aria-hidden="true"></div>
+  <div class="bg-beams" aria-hidden="true"></div>
+<div class="bg-aurora" aria-hidden="true"></div>
+<div class="bg-aurora bg-aurora--alt" aria-hidden="true"></div>
+<div class="bg-glyphs" aria-hidden="true">
+    <span class="bg-glyph">{</span>
+    <span class="bg-glyph">}</span>
+    <span class="bg-glyph">&lt;/&gt;</span>
+    <span class="bg-glyph">//</span>
+    <span class="bg-glyph">::</span>
+    <span class="bg-glyph">vibe</span>
+    <span class="bg-glyph">AI</span>
+    <span class="bg-glyph">{}</span>
+  </div>
+<div class="bg-scan" aria-hidden="true"></div>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="bg-orb bg-orb--1"></span>
+    <span class="bg-orb bg-orb--2"></span>
+    <span class="bg-orb bg-orb--3"></span>
+    <span class="bg-orb bg-orb--4"></span>
+  </div>
+  <div class="bg-mesh" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <header class="site-header reveal-on-load" style="--reveal-delay: 0ms">
+    <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__bar"></span></div>
+    <div class="site-header__inner">
+      <a class="logo" href="#">
+        <span class="logo__mark" aria-hidden="true"></span>
+        vibe coder
+      </a>
+      <div class="site-header__tools">
+        <nav class="nav" aria-label="Разделы страницы">
+          <a href="#about" data-nav-target="about"><span class="nav__idx">01</span> обо мне</a>
+          <a href="#projects" data-nav-target="projects"><span class="nav__idx">02</span> проекты</a>
+          <a href="#reviews" data-nav-target="reviews"><span class="nav__idx">03</span> отзывы</a>
+          <a href="#contacts" data-nav-target="contacts"><span class="nav__idx">04</span> контакты</a>
+        </nav>
+        <div class="theme-switch" role="group" aria-label="Тема оформления">
+          <button type="button" class="theme-switch__btn" data-theme-set="dark" aria-pressed="false">
+            <span class="theme-switch__icon" aria-hidden="true">◐</span>
+            <span class="theme-switch__label">Тёмная</span>
+          </button>
+          <button type="button" class="theme-switch__btn" data-theme-set="light" aria-pressed="false">
+            <span class="theme-switch__icon" aria-hidden="true">○</span>
+            <span class="theme-switch__label">Светлая</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="hero__rail hero-stagger" style="--hero-delay: 0ms" aria-hidden="true">portfolio — 2026</p>
+      <div class="hero__layout">
+        <div class="hero__copy">
+          <p class="hero__eyebrow hero-stagger" style="--hero-delay: 120ms">
+            <span class="hero__pulse" aria-hidden="true"></span>
+            Vibe Coder / Portfolio / Web &amp; AI Experiences
+          </p>
+          <h1 class="hero__title hero__title--split">
+            <span
+              class="hero__title-line1"
+              data-hero-split
+              data-split-type="chars"
+              data-split-delay="50"
+              data-split-duration="1.25"
+            >Я делаю сайты, интерфейсы и digital-проекты,</span>
+            <span
+              class="hero__title-line2"
+              data-hero-split
+              data-split-type="words"
+              data-split-delay="80"
+              data-split-duration="1.1"
+              data-split-offset="0.35"
+            >которые выглядят как вайб, а работают как система</span>
+          </h1>
+          <p class="hero__lead hero-stagger" style="--hero-delay: 520ms">
+            Не просто «что-то сверстать», а собрать ощущение, стиль, логику и подачу так,
+            чтобы проект хотелось открыть, листать и запомнить.
+          </p>
+          <div class="hero__actions hero-stagger" style="--hero-delay: 660ms">
+            <a class="btn btn--primary" href="#projects">Посмотреть проекты</a>
+            <a class="btn btn--ghost" href="#cta">Обсудить задачу</a>
+          </div>
+        </div>
+        <figure class="hero__photo hero-stagger" style="--hero-delay: 450ms">
+          <div class="hero__photo-frame">
+            <img
+              class="hero__photo-img"
+              src="image/author.png"
+              alt="Портрет — vibe coder"
+              width="480"
+              height="600"
+              loading="eager"
+              decoding="async"
+            />
+            <span class="hero__photo-glow" aria-hidden="true"></span>
+          </div>
+          <figcaption class="hero__photo-caption">
+            <span class="hero__photo-tag">vibe → system</span>
+            <span class="hero__photo-note">digital craft · 2026</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="hero__marquee hero-stagger" style="--hero-delay: 780ms" aria-hidden="true">
+        <div class="hero__marquee-track">
+          <span>vibe → structure → launch → digital craft → AI-first → </span>
+          <span>vibe → structure → launch → digital craft → AI-first → </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">01</span>
+        <h2 class="section-title section-title--large">Я не просто пишу код — я собираю впечатление</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__text">
+          <p>
+            Я работаю на стыке кода, визуала, UX и AI-инструментов.
+            Для меня сайт — это не набор блоков. Это ощущение от проекта,
+            ритм, подача, структура и то, как человек чувствует себя внутри интерфейса.
+          </p>
+          <p class="about__approach">
+            Мой подход — сделать быстро, красиво и не бездумно.
+            Чтобы проект не выглядел как очередной шаблон, собранный без вкуса и идеи.
+          </p>
+        </div>
+        <div class="about__list-wrap">
+          <p class="about__list-label">Я делаю:</p>
+          <ul class="about__list">
+            <li>лендинги</li>
+            <li>портфолио</li>
+            <li>промо-страницы</li>
+            <li>интерфейсы</li>
+            <li>спецпроекты</li>
+            <li>digital-концепты</li>
+            <li>AI-first сайты и продукты</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">02</span>
+        <h2 class="section-title section-title--large">Что я делаю</h2>
+      </div>
+      <div class="cards-grid">
+        <article class="card scroll-reveal" data-reveal-delay="0">
+          <span class="card__num">01</span>
+          <h3 class="card__title">Лендинги</h3>
+          <p class="card__text">Сайты, которые не просто «есть», а собирают внимание, держат ритм и ведут человека по смыслу.</p>
+        </article>
+        <article class="card scroll-reveal" data-reveal-delay="60">
+          <span class="card__num">02</span>
+          <h3 class="card__title">Портфолио и личные сайты</h3>
+          <p class="card__text">Страницы, которые показывают не только работы, но и стиль, характер и уровень.</p>
+        </article>
+        <article class="card scroll-reveal" data-reveal-delay="120">
+          <span class="card__num">03</span>
+          <h3 class="card__title">Визуальные концепты</h3>
+          <p class="card__text">Когда нужен не просто сайт, а ощущение: атмосфера, характер, настроение, подача.</p>
+        </article>
+        <article class="card scroll-reveal" data-reveal-delay="180">
+          <span class="card__num">04</span>
+          <h3 class="card__title">AI | Web</h3>
+          <p class="card__text">Использую нейросети как инструмент ускорения и усиления идей, а не как замену мышлению.</p>
+        </article>
+        <article class="card scroll-reveal" data-reveal-delay="240">
+          <span class="card__num">05</span>
+          <h3 class="card__title">UX и структура</h3>
+          <p class="card__text">Продумываю, как человек читает, куда смотрит, где теряется и где принимает решение.</p>
+        </article>
+        <article class="card scroll-reveal" data-reveal-delay="300">
+          <span class="card__num">06</span>
+          <h3 class="card__title">Быстрый запуск</h3>
+          <p class="card__text">Могу собрать сильную первую версию быстро, без месяцев бесконечных согласований.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach" class="approach scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">03</span>
+        <h2 class="section-title section-title--large">Как я работаю</h2>
+      </div>
+      <div class="steps-wrap">
+        <div class="steps__progress" aria-hidden="true"><span class="steps__progress-fill"></span></div>
+        <ol class="steps">
+        <li class="step scroll-reveal" data-reveal-delay="0">
+          <span class="step__index">01</span>
+          <div class="step__body">
+            <h3 class="step__title">Сначала вайб</h3>
+            <p class="step__text">Я смотрю не только на задачу, но и на ощущение, которое должен передавать проект.</p>
+          </div>
+        </li>
+        <li class="step scroll-reveal" data-reveal-delay="80">
+          <span class="step__index">02</span>
+          <div class="step__body">
+            <h3 class="step__title">Потом структура</h3>
+            <p class="step__text">Красивый сайт без логики — это просто красивая обёртка. Поэтому я собираю смысл, сценарий и путь пользователя.</p>
+          </div>
+        </li>
+        <li class="step scroll-reveal" data-reveal-delay="160">
+          <span class="step__index">03</span>
+          <div class="step__body">
+            <h3 class="step__title">Потом реализация</h3>
+            <p class="step__text">Когда есть стиль и логика, проект собирается быстрее, точнее и выглядит сильно.</p>
+          </div>
+        </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="projects" class="projects scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">04</span>
+        <h2 class="section-title section-title--large">Избранные проекты</h2>
+      </div>
+      <p class="projects__hint">Скриншоты: положи файлы в <code>images/projects/</code> — или замени пути и ссылки на кейсы в HTML.</p>
+      <div class="projects-grid">
+        <article class="project project--featured scroll-reveal" data-reveal-delay="0">
+          <a class="project__media" href="https://example.com/case/ai-landing" target="_blank" rel="noopener noreferrer" aria-label="Открыть кейс: AI Landing Experience">
+            <img class="project__img" src="images/projects/ai-landing.svg" alt="Скриншот: AI Landing Experience" width="640" height="400" loading="lazy" decoding="async" />
+            <span class="project__media-fallback">
+              <span class="project__media-icon" aria-hidden="true">◇</span>
+              <span class="project__media-name">ai-landing.jpg</span>
+            </span>
+          </a>
+          <div class="project__body">
+            <span class="project__tag">Лендинг</span>
+            <h3 class="project__title">AI Landing Experience</h3>
+            <p class="project__desc">Лендинг для digital-продукта с акцентом на атмосферу, скорость восприятия и современный визуал.</p>
+            <p class="project__done"><strong>Что сделано:</strong> структура, тексты, дизайн-концепция, сборка.</p>
+            <a class="project__link" href="https://example.com/case/ai-landing" target="_blank" rel="noopener noreferrer">Смотреть кейс →</a>
+          </div>
+        </article>
+        <article class="project scroll-reveal" data-reveal-delay="80">
+          <a class="project__media" href="https://example.com/case/creative-portfolio" target="_blank" rel="noopener noreferrer" aria-label="Открыть кейс: Portfolio for Creative Expert">
+            <img class="project__img" src="images/projects/creative-portfolio.svg" alt="Скриншот: Portfolio for Creative Expert" width="640" height="400" loading="lazy" decoding="async" />
+            <span class="project__media-fallback">
+              <span class="project__media-icon" aria-hidden="true">◇</span>
+              <span class="project__media-name">creative-portfolio.jpg</span>
+            </span>
+          </a>
+          <div class="project__body">
+            <span class="project__tag">Портфолио</span>
+            <h3 class="project__title">Portfolio for Creative Expert</h3>
+            <p class="project__desc">Личный сайт-портфолио, который показывает не только кейсы, но и стиль человека.</p>
+            <p class="project__done"><strong>Что сделано:</strong> позиционирование, подача, визуальный ритм, упаковка работ.</p>
+            <a class="project__link" href="https://example.com/case/creative-portfolio" target="_blank" rel="noopener noreferrer">Смотреть кейс →</a>
+          </div>
+        </article>
+        <article class="project scroll-reveal" data-reveal-delay="160">
+          <a class="project__media" href="https://example.com/case/bot-funnel" target="_blank" rel="noopener noreferrer" aria-label="Открыть кейс: Bot &amp; Funnel Page">
+            <img class="project__img" src="images/projects/bot-funnel.svg" alt="Скриншот: Bot &amp; Funnel Page" width="640" height="400" loading="lazy" decoding="async" />
+            <span class="project__media-fallback">
+              <span class="project__media-icon" aria-hidden="true">◇</span>
+              <span class="project__media-name">bot-funnel.jpg</span>
+            </span>
+          </a>
+          <div class="project__body">
+            <span class="project__tag">Воронка</span>
+            <h3 class="project__title">Bot &amp; Funnel Page</h3>
+            <p class="project__desc">Промо-страница под воронку и digital-продукт с акцентом на конверсию и лёгкость восприятия.</p>
+            <p class="project__done"><strong>Что сделано:</strong> логика блоков, тексты, CTA, визуальный каркас.</p>
+            <a class="project__link" href="https://example.com/case/bot-funnel" target="_blank" rel="noopener noreferrer">Смотреть кейс →</a>
+          </div>
+        </article>
+        <article class="project scroll-reveal" data-reveal-delay="240">
+          <a class="project__media" href="https://example.com/case/ai-creator-concept" target="_blank" rel="noopener noreferrer" aria-label="Открыть кейс: Concept Site for AI Creator">
+            <img class="project__img" src="images/projects/ai-creator-concept.svg" alt="Скриншот: Concept Site for AI Creator" width="640" height="400" loading="lazy" decoding="async" />
+            <span class="project__media-fallback">
+              <span class="project__media-icon" aria-hidden="true">◇</span>
+              <span class="project__media-name">ai-creator-concept.jpg</span>
+            </span>
+          </a>
+          <div class="project__body">
+            <span class="project__tag">Концепт</span>
+            <h3 class="project__title">Concept Site for AI Creator</h3>
+            <p class="project__desc">Сайт с упором на трендовую подачу, сильный первый экран и ощущение «это хочется переслать».</p>
+            <p class="project__done"><strong>Что сделано:</strong> creative direction, структура, визуальная концепция.</p>
+            <a class="project__link" href="https://example.com/case/ai-creator-concept" target="_blank" rel="noopener noreferrer">Смотреть кейс →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="reviews" class="reviews scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">05</span>
+        <h2 class="section-title section-title--large">Отзывы после запуска</h2>
+      </div>
+      <p class="reviews__lead scroll-reveal" data-reveal-delay="60">
+        Не «всё понравилось», а конкретика: что изменилось в подаче, скорости и ощущении от проекта.
+      </p>
+      <div class="reviews-panel scroll-reveal" data-reveal-delay="120" data-reviews-slider>
+        <div class="reviews-slider__toolbar">
+          <div class="reviews-slider__meta">
+            <span class="reviews-slider__eyebrow">отзывы клиентов</span>
+            <span class="reviews-slider__counter" data-reviews-counter aria-live="polite">01 / 04</span>
+          </div>
+          <div class="reviews-slider__nav" aria-label="Листать отзывы">
+            <button type="button" class="reviews-slider__btn btn btn--ghost" data-reviews-prev aria-label="Предыдущий отзыв">
+              <span class="reviews-slider__arrow" aria-hidden="true">←</span>
+              <span>назад</span>
+            </button>
+            <button type="button" class="reviews-slider__btn btn btn--ghost" data-reviews-next aria-label="Следующий отзыв">
+              <span>дальше</span>
+              <span class="reviews-slider__arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="reviews-slider__viewport"
+          data-reviews-viewport
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Отзывы клиентов о работе"
+        >
+          <div class="reviews-slider__track" data-reviews-track>
+            <article class="review is-active" id="review-0" data-review-index="0">
+          <span class="review__glyph" aria-hidden="true">"</span>
+          <blockquote class="review__quote">
+            <p>
+              Сайт перестал выглядеть как черновик. Появился ритм, характер и ощущение продукта —
+              люди стали дольше листать и чаще писать в директ.
+            </p>
+          </blockquote>
+          <footer class="review__footer">
+            <div class="review__author">
+              <span class="review__name">Алина К.</span>
+              <span class="review__role">креатор · личный бренд</span>
+            </div>
+            <span class="review__tag">портфолио</span>
+          </footer>
+        </article>
+            <article class="review" id="review-1" data-review-index="1">
+          <span class="review__glyph" aria-hidden="true">"</span>
+          <blockquote class="review__quote">
+            <p>
+              Быстро собрали сильный первый экран и логику блоков. Без бесконечных правок —
+              сразу понятно, куда смотрит пользователь.
+            </p>
+          </blockquote>
+          <footer class="review__footer">
+            <div class="review__author">
+              <span class="review__name">Марк Т.</span>
+              <span class="review__role">основатель · AI-продукт</span>
+            </div>
+            <span class="review__tag">лендинг</span>
+          </footer>
+        </article>
+            <article class="review" id="review-2" data-review-index="2">
+          <span class="review__glyph" aria-hidden="true">"</span>
+          <blockquote class="review__quote">
+            <p>
+              Нужен был не шаблон, а вайб под студию. Получили визуал, который можно показывать
+              клиентам как референс уровня.
+            </p>
+          </blockquote>
+          <footer class="review__footer">
+            <div class="review__author">
+              <span class="review__name">Студия Nova</span>
+              <span class="review__role">digital · упаковка услуг</span>
+            </div>
+            <span class="review__tag">промо</span>
+          </footer>
+        </article>
+            <article class="review" id="review-3" data-review-index="3">
+          <span class="review__glyph" aria-hidden="true">"</span>
+          <blockquote class="review__quote">
+            <p>
+              Структура, тексты и подача — в одном потоке. Запуск занял дни, а не недели,
+              и результат выглядит дороже бюджета.
+            </p>
+          </blockquote>
+          <footer class="review__footer">
+            <div class="review__author">
+              <span class="review__name">Ирина В.</span>
+              <span class="review__role">эксперт · онлайн-школа</span>
+            </div>
+            <span class="review__tag">воронка</span>
+          </footer>
+        </article>
+          </div>
+        </div>
+        <div class="reviews-slider__dots" role="tablist" aria-label="Выбор отзыва" data-reviews-dots>
+          <button type="button" class="reviews-slider__dot is-active" role="tab" aria-selected="true" aria-controls="review-0" data-reviews-dot="0">
+            <span class="visually-hidden">Отзыв 1</span>
+          </button>
+          <button type="button" class="reviews-slider__dot" role="tab" aria-selected="false" aria-controls="review-1" data-reviews-dot="1" tabindex="-1">
+            <span class="visually-hidden">Отзыв 2</span>
+          </button>
+          <button type="button" class="reviews-slider__dot" role="tab" aria-selected="false" aria-controls="review-2" data-reviews-dot="2" tabindex="-1">
+            <span class="visually-hidden">Отзыв 3</span>
+          </button>
+          <button type="button" class="reviews-slider__dot" role="tab" aria-selected="false" aria-controls="review-3" data-reviews-dot="3" tabindex="-1">
+            <span class="visually-hidden">Отзыв 4</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="why scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">06</span>
+        <h2 class="section-title section-title--large">Почему ко мне идут не просто за кодом</h2>
+      </div>
+      <div class="why__grid">
+        <div class="why__intro">
+          <p>Потому что я умею видеть проект целиком.</p>
+        </div>
+        <div class="why__cols">
+          <div class="why__col">
+            <p class="why__col-label">Не только:</p>
+            <ul>
+              <li>как это собрать</li>
+            </ul>
+          </div>
+          <div class="why__col why__col--accent">
+            <p class="why__col-label">но и:</p>
+            <ul>
+              <li>как это подать</li>
+              <li>как это будет восприниматься</li>
+              <li>где человек зацепится взглядом</li>
+              <li>что запомнит</li>
+              <li>почему это будет выглядеть дороже, чем стоит</li>
+            </ul>
+          </div>
+        </div>
+        <p class="why__formula">
+          <span>эстетика</span>
+          <span class="why__plus">+</span>
+          <span>структура</span>
+          <span class="why__plus">+</span>
+          <span>digital-мышление</span>
+          <span class="why__plus">+</span>
+          <span>скорость</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="stack" class="stack scroll-reveal">
+      <div class="section-head">
+        <span class="section-head__num" aria-hidden="true">07</span>
+        <h2 class="section-title section-title--large">Инструменты</h2>
+      </div>
+      <ul class="badges">
+        <li><span class="badge badge-wave" data-wave-delay="0">ChatGPT</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="50">Cursor</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="100">HTML / CSS / JS</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="150">React</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="200">Tailwind</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="250">Framer Motion</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="300">Figma</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="350">Tilda / Webflow / custom</span></li>
+        <li><span class="badge badge-wave" data-wave-delay="400">Telegram / Bots / AI tools</span></li>
+      </ul>
+      <p class="stack__note scroll-reveal" data-reveal-delay="120">
+        Но если честно — главный инструмент не стек, а вкус, насмотренность и умение собирать цельное впечатление.
+      </p>
+    </section>
+
+    <section id="audience" class="audience scroll-reveal">
+      <div class="audience__head">
+        <span class="audience__label" aria-hidden="true">//</span>
+        <h2 class="section-title">Кому подойдёт моя работа</h2>
+      </div>
+      <ul class="audience__list">
+        <li><span class="audience__bullet" aria-hidden="true"></span> экспертам</li>
+        <li><span class="audience__bullet" aria-hidden="true"></span> креаторам</li>
+        <li><span class="audience__bullet" aria-hidden="true"></span> digital-проектам</li>
+        <li><span class="audience__bullet" aria-hidden="true"></span> AI-продуктам</li>
+        <li><span class="audience__bullet" aria-hidden="true"></span> студиям</li>
+        <li><span class="audience__bullet" aria-hidden="true"></span> тем, кому нужен сайт с характером</li>
+        <li><span class="audience__bullet" aria-hidden="true"></span> тем, кто не хочет шаблонную безликую страницу</li>
+      </ul>
+    </section>
+
+    <section id="manifest" class="manifest scroll-reveal">
+      <span class="manifest__stamp" aria-hidden="true">live</span>
+      <div class="manifest__frame">
+        <blockquote class="manifest__quote">
+          <p>
+            Хороший сайт — это не когда «нормально сверстано».
+            <span class="manifest__break" aria-hidden="true"></span>
+            Это когда у проекта появляется <em>энергия</em>, <em>форма</em> и ощущение, что он
+            <em class="manifest__live">живой</em>.
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="cta" class="cta scroll-reveal">
+      <div class="cta__card">
+        <h2 class="cta__title">
+          Если тебе нужен сайт, который выглядит сильно и ощущается современно — давай соберём
+        </h2>
+        <p class="cta__text">
+          Могу помочь с концепцией, структурой, упаковкой и реализацией.
+          От первого вайба до готовой страницы.
+        </p>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="#contacts">Написать мне</a>
+          <a class="btn btn--ghost" href="#projects">Посмотреть работы</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="contacts scroll-reveal">
+      <h2 class="section-title">Контакты</h2>
+      <p class="contacts__text">
+        Напиши в Telegram или на почту — обсудим задачу, вайб и первую версию.
+      </p>
+      <ul class="contacts__links">
+        <li>
+          <span class="contacts__label">Telegram</span>
+          <a href="https://t.me/NataliArtlSMM" target="_blank" rel="noopener noreferrer">@NataliArtlSMM</a>
+        </li>
+        <li>
+          <span class="contacts__label">Email</span>
+          <a href="mailto:natalia.smirnova.19@bk.ru">natalia.smirnova.19@bk.ru</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer scroll-reveal">
+    <span class="site-footer__line" aria-hidden="true"></span>
+    <span>© Vibe Coder — Portfolio</span>
+  </footer>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"></span><span class="cursor__dot"></span></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="hero-title-animation.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

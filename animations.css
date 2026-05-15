@@ -1,0 +1,180 @@
+/* ??????????????? ????? ???????? */
+
+/* �� 1. Hero stagger �� */
+.hero-stagger {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(6px);
+  animation: hero-stagger-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+@keyframes hero-stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* �� 2. ???????? ????????? �� */
+.nav a {
+  position: relative;
+}
+
+.nav a.is-active {
+  color: var(--paper);
+}
+
+.nav a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+  transform: scaleX(1);
+  transform-origin: left;
+  animation: nav-line-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes nav-line-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* �� 3. ???????? ????? �� */
+.steps-wrap {
+  position: relative;
+}
+
+.steps__progress {
+  position: absolute;
+  left: calc(2.25rem - 1px);
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 2px;
+  z-index: 2;
+  background: var(--stroke);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.steps__progress-fill {
+  display: block;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, var(--blue), var(--violet), rgba(var(--accent-rgb), 0.35));
+  border-radius: 2px;
+  box-shadow: 0 0 12px var(--accent-glow);
+  transition: height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step.is-active .step__index {
+  color: var(--ink);
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.step.is-active .step__title {
+  color: var(--accent);
+}
+
+/* �� 4. Tilt ? spotlight ???????? �� */
+.project {
+  transform-style: preserve-3d;
+  transition:
+    opacity 0.4s var(--ease-out-expo),
+    transform 0.4s var(--ease-out-expo),
+    border-color 0.3s,
+    box-shadow 0.35s;
+}
+
+.project__media {
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.projects-grid.has-focus .project:not(.is-hovered) {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+.projects-grid.has-focus .project.is-hovered {
+  opacity: 1;
+  z-index: 2;
+}
+
+.project.is-hovered {
+  border-color: rgba(var(--accent-rgb), 0.4);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45);
+}
+
+/* �� 5. ????? ??????? �� */
+.badge-wave {
+  opacity: 0;
+  transform: translateY(14px) scale(0.92);
+}
+
+.badge-wave.is-wave-visible {
+  animation: badge-pop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+  animation-delay: var(--wave-delay, 0ms);
+}
+
+@keyframes badge-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stagger,
+  .hero__title--split [data-hero-split] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+
+  .nav a.is-active::after {
+    animation: none;
+  }
+
+  .steps__progress-fill {
+    transition: none;
+  }
+
+  .project__media {
+    transition: none;
+  }
+
+  .projects-grid.has-focus .project:not(.is-hovered) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .badge-wave {
+    opacity: 1;
+    transform: none;
+  }
+
+  .badge-wave.is-wave-visible {
+    animation: none;
+  }
+}
