@@ -19,6 +19,14 @@
     return;
   }
 
+  /* Если GSAP не отработал — показать текст целиком */
+  window.setTimeout(function () {
+    var title = document.querySelector(".hero__title--split");
+    if (title && !title.classList.contains("is-split-done")) {
+      showPlain();
+    }
+  }, 4000);
+
   function splitElement(el, type) {
     var text = el.textContent;
     el.setAttribute("aria-label", text);
@@ -93,14 +101,19 @@
       var type = el.getAttribute("data-split-type") || "chars";
       var delayMs = readNumber(el, "data-split-delay", 50);
       var duration = readNumber(el, "data-split-duration", 1.25);
-      var offset = readNumber(el, "data-split-offset", index === 0 ? 0 : 0.35);
+      var inLine2 = Boolean(el.closest(".hero__title-line2"));
+      var offset = readNumber(
+        el,
+        "data-split-offset",
+        inLine2 ? 0.35 + index * 0.18 : index === 0 ? 0 : 0.35
+      );
       var targets = splitElement(el, type);
 
       if (!targets.length) return;
 
       gsap.set(targets, { opacity: 0, y: 40 });
 
-      var position = index === 0 ? 0 : offset;
+      var position = el.classList.contains("hero__title-line1") ? 0 : offset;
 
       timeline.to(
         targets,

@@ -18,11 +18,28 @@
   width: 0.28em;
 }
 
-.hero__title-line2 .split-word {
+.hero__title-line2 {
+  display: block;
+  color: var(--text-bright, var(--paper));
+}
+
+.hero__title-bright,
+.hero__title-accent {
+  display: inline;
+}
+
+.hero__title-accent {
   background: var(--gradient-hero-text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.hero__title-line1 .split-char {
+  color: var(--text-bright);
+  text-shadow:
+    0 0 28px var(--text-bright-glow),
+    0 0 56px var(--text-accent-glow);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -83,7 +83,7 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   color: var(--paper-dim);
-  opacity: 0.45;
+  opacity: 0.72;
   user-select: none;
   display: none;
 }
@@ -96,7 +96,7 @@
 
 .hero__title-line2 {
   position: relative;
-  display: inline-block;
+  display: block;
   font-weight: 800;
 }
 
@@ -129,7 +129,7 @@
 
 .hero__marquee-track span:nth-child(odd) {
   color: var(--accent);
-  opacity: 0.75;
+  opacity: 1;
 }
 
 @keyframes marquee {

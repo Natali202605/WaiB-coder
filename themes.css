@@ -9,17 +9,20 @@
   --surface-2: #180f38;
   --surface-elevated: #22124c;
 
-  --paper: #ece9f8;
-  --paper-dim: #9aa8e8;
-  --paper-muted: #6b7ab8;
+  --paper: #ffffff;
+  --paper-dim: #c8d6ff;
+  --paper-muted: #9eb0f0;
+  --text-bright: #ffffff;
+  --text-bright-glow: rgba(255, 255, 255, 0.14);
+  --text-accent-glow: rgba(var(--accent-rgb), 0.35);
 
-  --violet: #a78bfa;
-  --blue: #60a5fa;
-  --lilac: #d8b4fe;
-  --indigo: #818cf8;
+  --violet: #c4b5fd;
+  --blue: #7dd3fc;
+  --lilac: #e9d5ff;
+  --indigo: #a5b4fc;
 
-  --accent: #b794f6;
-  --accent-soft: #d8b4fe;
+  --accent: #c9a8ff;
+  --accent-soft: #e4d4ff;
   --accent-deep: #7c3aed;
   --accent-on: #0f0a1a;
   --accent-rgb: 183, 148, 246;
@@ -33,7 +36,7 @@
 
   --gradient-accent: linear-gradient(135deg, var(--blue) 0%, var(--indigo) 38%, var(--violet) 68%, var(--lilac) 100%);
   --gradient-accent-soft: linear-gradient(120deg, rgba(96, 165, 250, 0.2) 0%, rgba(167, 139, 250, 0.25) 50%, rgba(216, 180, 254, 0.2) 100%);
-  --gradient-hero-text: linear-gradient(120deg, #93c5fd 0%, #a78bfa 45%, #e9d5ff 100%);
+  --gradient-hero-text: linear-gradient(120deg, #7dd3fc 0%, #c4b5fd 40%, #f0abfc 75%, #faf5ff 100%);
   --gradient-bg:
     linear-gradient(165deg, #1a0a42 0%, #0e0528 38%, #120638 68%, var(--ink) 100%),
     radial-gradient(ellipse 130% 90% at 15% -5%, rgba(124, 58, 237, 0.38), transparent 52%),
@@ -105,23 +108,26 @@
 [data-theme="light"] {
   color-scheme: light;
 
-  --ink: #ede8ff;
+  --ink: #fff8ff;
   --surface: #ffffff;
-  --surface-2: #ede9fe;
-  --surface-elevated: #e4deff;
+  --surface-2: #f5ecff;
+  --surface-elevated: #ebe0ff;
 
-  --paper: #1a1630;
-  --paper-dim: #5c5678;
-  --paper-muted: #8b85a8;
+  --paper: #0c0624;
+  --paper-dim: #2e2268;
+  --paper-muted: #4a3a9e;
+  --text-bright: #0c0624;
+  --text-bright-glow: rgba(255, 255, 255, 0.55);
+  --text-accent-glow: rgba(var(--accent-rgb), 0.28);
 
-  --violet: #7c3aed;
-  --blue: #2563eb;
-  --lilac: #a855f7;
-  --indigo: #4f46e5;
+  --violet: #6d28d9;
+  --blue: #1d4ed8;
+  --lilac: #9333ea;
+  --indigo: #4338ca;
 
-  --accent: #7c3aed;
-  --accent-soft: #a78bfa;
-  --accent-deep: #5b21b6;
+  --accent: #6d28d9;
+  --accent-soft: #7c3aed;
+  --accent-deep: #4c1d95;
   --accent-on: #faf8ff;
   --accent-rgb: 124, 58, 237;
 
@@ -134,22 +140,26 @@
 
   --gradient-accent: linear-gradient(135deg, var(--blue) 0%, var(--indigo) 40%, var(--violet) 75%, var(--lilac) 100%);
   --gradient-accent-soft: linear-gradient(120deg, rgba(37, 99, 235, 0.12) 0%, rgba(124, 58, 237, 0.14) 55%, rgba(168, 85, 247, 0.1) 100%);
-  --gradient-hero-text: linear-gradient(120deg, #2563eb 0%, #7c3aed 50%, #a855f7 100%);
+  --gradient-hero-text: linear-gradient(115deg, #1d4ed8 0%, #6d28d9 42%, #c026d3 78%, #7c3aed 100%);
   --gradient-bg:
-    linear-gradient(160deg, #e8deff 0%, #ddd0ff 40%, #ede8ff 100%),
-    radial-gradient(ellipse 110% 75% at 8% 0%, rgba(124, 58, 237, 0.28), transparent 55%),
-    radial-gradient(ellipse 85% 55% at 95% 12%, rgba(168, 85, 247, 0.32), transparent 50%),
-    radial-gradient(ellipse 75% 50% at 50% 100%, rgba(139, 92, 246, 0.22), transparent 55%),
+    linear-gradient(148deg, #ffe8fc 0%, #e8d4ff 22%, #d4e8ff 48%, #f0e0ff 72%, #fff9ff 100%),
+    radial-gradient(ellipse 125% 85% at 4% -6%, rgba(124, 58, 237, 0.48), transparent 52%),
+    radial-gradient(ellipse 95% 70% at 98% 4%, rgba(236, 72, 153, 0.32), transparent 48%),
+    radial-gradient(ellipse 90% 60% at 88% 88%, rgba(37, 99, 235, 0.38), transparent 50%),
+    radial-gradient(ellipse 70% 55% at 42% 100%, rgba(168, 85, 247, 0.35), transparent 52%),
+    radial-gradient(ellipse 55% 45% at 62% 38%, rgba(59, 130, 246, 0.22), transparent 58%),
     var(--ink);
 
   --bg-base: linear-gradient(
-      155deg,
-      #ddd0ff 0%,
-      #e4d9ff 35%,
-      #f0ebff 70%,
-      #ede8ff 100%
+      138deg,
+      #f5d4ff 0%,
+      #dce8ff 18%,
+      #ffe0f5 42%,
+      #e4d4ff 62%,
+      #f8f0ff 82%,
+      #fff9ff 100%
     );
-  --aurora-opacity: 0.42;
+  --aurora-opacity: 0.68;
   --orb-blend: multiply;
 
   --stroke: rgba(26, 22, 48, 0.1);
@@ -180,15 +190,15 @@
     0 0 34px rgba(124, 58, 237, 0.62),
     0 0 68px rgba(59, 130, 246, 0.48);
 
-  --mesh-1: rgba(124, 58, 237, 0.2);
-  --mesh-2: rgba(168, 85, 247, 0.22);
-  --mesh-3: rgba(196, 181, 253, 0.28);
-  --mesh-4: rgba(59, 130, 246, 0.12);
+  --mesh-1: rgba(124, 58, 237, 0.34);
+  --mesh-2: rgba(236, 72, 153, 0.28);
+  --mesh-3: rgba(59, 130, 246, 0.3);
+  --mesh-4: rgba(168, 85, 247, 0.26);
 
-  --vignette-center: rgba(167, 139, 250, 0.12);
-  --vignette-edge: rgba(237, 232, 255, 0.65);
-  --grid-opacity: 0.36;
-  --grid-tint: rgba(124, 58, 237, 0.12);
+  --vignette-center: rgba(196, 181, 253, 0.22);
+  --vignette-edge: rgba(255, 248, 255, 0.45);
+  --grid-opacity: 0.52;
+  --grid-tint: rgba(109, 40, 217, 0.2);
 
   --cursor-blend: normal;
   --header-glass: color-mix(in srgb, var(--surface) 90%, transparent);
@@ -246,18 +256,42 @@ body {
 }
 
 [data-theme="light"] .noise {
-  opacity: 0.035;
+  opacity: 0.028;
   mix-blend-mode: multiply;
 }
 
 /* Градиентные акценты */
-.hero__title-line2,
-[data-theme="light"] .hero__title-line2 {
+.hero__title-line2 {
+  border-top-color: rgba(var(--accent-rgb), 0.45);
+}
+
+.text-bright,
+.hero__title-bright,
+.hero__title-bright .split-char,
+.hero__title-bright .split-word {
+  color: var(--text-bright);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  text-shadow:
+    0 0 28px var(--text-bright-glow),
+    0 0 56px var(--text-accent-glow);
+}
+
+.text-accent,
+.hero__title-accent .split-char,
+.hero__title-accent .split-word {
   background: var(--gradient-hero-text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  border-top-color: rgba(var(--accent-rgb), 0.45);
+  text-shadow: none;
+  filter: saturate(1.15);
+}
+
+.text-accent {
+  display: inline;
+  font-weight: 800;
 }
 
 .btn--primary,
@@ -286,7 +320,7 @@ body {
 
 .section-head::after {
   background: var(--gradient-accent);
-  opacity: 0.75;
+  opacity: 0.92;
 }
 
 .site-footer__line {
@@ -377,4 +411,71 @@ body {
 
 [data-theme="light"] .cursor__ring {
   border-color: var(--accent);
+}
+
+/* Яркость и насыщенность текста */
+body {
+  text-rendering: optimizeLegibility;
+}
+
+.hero__lead,
+.about__text p,
+.card__text,
+.stack__note,
+.audience__list li,
+.step__text,
+.contacts__text,
+.review__quote,
+.manifest__quote,
+.cta__text,
+.why__intro p,
+.why__col li,
+.projects__hint,
+.project__desc,
+.reviews__lead {
+  font-weight: 500;
+}
+
+.hero__lead,
+.about__text p,
+.card__text,
+.cta__text,
+.why__intro p,
+.reviews__lead,
+.contacts__text {
+  color: color-mix(in srgb, var(--paper) 82%, var(--paper-dim));
+}
+
+[data-theme="light"] .hero__lead,
+[data-theme="light"] .about__text p,
+[data-theme="light"] .card__text,
+[data-theme="light"] .cta__text,
+[data-theme="light"] .why__intro p,
+[data-theme="light"] .reviews__lead,
+[data-theme="light"] .contacts__text {
+  color: color-mix(in srgb, var(--paper) 78%, var(--paper-dim));
+}
+
+.section-title,
+.why__col-label,
+.contacts__label,
+.projects__hint {
+  color: color-mix(in srgb, var(--accent) 38%, var(--paper-dim));
+  font-weight: 600;
+}
+
+.nav a,
+.hero__marquee-track span,
+.site-footer {
+  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a.is-active {
+  color: var(--paper);
+}
+
+.hero__eyebrow {
+  color: color-mix(in srgb, var(--accent) 55%, var(--paper));
+  font-weight: 600;
 }

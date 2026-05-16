@@ -38,8 +38,10 @@ body {
   font-size: 1.0625rem;
   font-optical-sizing: auto;
   line-height: 1.55;
-  font-weight: 400;
+  font-weight: 450;
   color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: var(--ink);
   position: relative;
   overflow-x: hidden;
@@ -218,7 +220,7 @@ main,
 .nav__idx {
   font-size: var(--text-micro);
   color: var(--accent);
-  opacity: 0.75;
+  opacity: 0.95;
 }
 
 .nav a:hover {
@@ -311,7 +313,7 @@ main {
 @media (min-width: 900px) {
   .hero__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(150px, 220px);
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
     grid-template-rows: auto auto auto auto;
     column-gap: clamp(1.25rem, 3vw, 2.75rem);
     row-gap: clamp(0.35rem, 1.5vw, 0.75rem);
@@ -416,7 +418,7 @@ main {
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.04em;
-  color: var(--paper);
+  color: var(--text-bright, var(--paper));
 }
 
 .hero__title-line2 {
@@ -428,8 +430,16 @@ main {
   font-size: clamp(1.35rem, 3.2vw, 2.1rem);
   font-weight: 700;
   font-style: normal;
-  line-height: 1.1;
+  line-height: 1.35;
   letter-spacing: -0.035em;
+}
+
+.hero__title-bright {
+  font-weight: 700;
+}
+
+.hero__title-accent {
+  font-weight: 800;
 }
 
 .hero__lead {
@@ -538,7 +548,7 @@ main {
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--accent);
-  opacity: 0.7;
+  opacity: 0.95;
   padding-top: 0.35em;
 }
 
@@ -618,7 +628,7 @@ main {
   position: absolute;
   left: 0;
   color: var(--accent);
-  opacity: 0.6;
+  opacity: 0.88;
 }
 
 /* —— Карточки услуг —— */
@@ -1266,7 +1276,7 @@ main {
   position: absolute;
   left: 0;
   color: var(--paper-dim);
-  opacity: 0.5;
+  opacity: 0.78;
 }
 
 .why__col--accent li::before {
@@ -1304,7 +1314,7 @@ main {
 
 .why__plus {
   color: var(--paper-dim);
-  opacity: 0.5;
+  opacity: 0.78;
 }
 
 /* —— Стек —— */
@@ -1502,8 +1512,11 @@ main {
 
 .manifest__quote em {
   font-style: italic;
-  font-weight: 600;
-  color: var(--accent);
+  font-weight: 700;
+}
+
+.manifest__quote .text-accent {
+  font-style: italic;
 }
 
 .manifest__live {
@@ -1552,7 +1565,16 @@ main {
 .cta__title {
   font-size: clamp(1.45rem, 3.5vw, 2.15rem);
   margin: 0 0 1rem;
-  max-width: 26ch;
+  max-width: 28ch;
+  line-height: 1.18;
+}
+
+.cta__title .text-bright {
+  font-weight: 700;
+}
+
+.cta__title .text-accent {
+  font-weight: 800;
 }
 
 .cta__text {
