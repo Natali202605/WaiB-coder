@@ -2,6 +2,9 @@
   "use strict";
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var isTouch =
+    window.matchMedia("(hover: none), (pointer: coarse)").matches ||
+    window.matchMedia("(max-width: 899px)").matches;
   var lines = document.querySelectorAll("[data-hero-split]");
 
   if (!lines.length) return;
@@ -14,7 +17,7 @@
     if (title) title.classList.add("is-split-ready", "is-split-done");
   }
 
-  if (prefersReduced || typeof gsap === "undefined") {
+  if (prefersReduced || isTouch || typeof gsap === "undefined") {
     showPlain();
     return;
   }

@@ -10,6 +10,9 @@
       var stored = localStorage.getItem("theme");
       var theme = stored || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
       document.documentElement.setAttribute("data-theme", theme);
+      if (window.matchMedia("(hover: none), (pointer: coarse), (max-width: 899px)").matches) {
+        document.documentElement.classList.add("is-touch");
+      }
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +26,7 @@
   <link rel="stylesheet" href="animations.css" />
   <link rel="stylesheet" href="hero-photo.css" />
   <link rel="stylesheet" href="hero-title-animation.css" />
+  <link rel="stylesheet" href="mobile.css" />
 </head>
 <body>
   <div class="bg-base" aria-hidden="true"></div>
