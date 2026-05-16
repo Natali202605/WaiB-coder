@@ -6,7 +6,7 @@
 
 @media (min-width: 900px) {
   .hero__layout {
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
     align-items: center;
   }
 
@@ -16,14 +16,14 @@
     align-self: center;
     justify-self: end;
     width: 100%;
-    max-width: 340px;
+    max-width: 420px;
   }
 }
 
 .hero__photo {
   margin: 0;
   width: 100%;
-  max-width: 280px;
+  max-width: 340px;
   justify-self: center;
 }
 
@@ -202,7 +202,7 @@
 @media (max-width: 899px) {
   .hero__photo {
     order: -1;
-    max-width: min(100%, 260px);
+    max-width: min(100%, 320px);
     margin: 0 auto 0.75rem;
   }
 

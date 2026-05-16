@@ -313,7 +313,7 @@ main {
 @media (min-width: 900px) {
   .hero__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
     grid-template-rows: auto auto auto auto auto;
     column-gap: clamp(1.25rem, 3vw, 2.75rem);
     row-gap: clamp(0.35rem, 1.5vw, 0.75rem);
