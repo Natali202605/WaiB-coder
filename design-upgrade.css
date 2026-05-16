@@ -338,6 +338,7 @@
   pointer-events: none;
   mix-blend-mode: var(--cursor-blend, difference);
   opacity: 0;
+  filter: saturate(1.45) brightness(1.12);
   transition: opacity 0.25s;
 }
 
@@ -347,29 +348,55 @@
 
 .cursor__dot {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  background: var(--accent);
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--neon-lilac, var(--accent-soft));
   border-radius: 50%;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 0 12px rgba(var(--accent-rgb), 0.95),
+    0 0 24px rgba(var(--trust-rgb), 0.75),
+    0 0 36px rgba(192, 132, 252, 0.5);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease;
 }
 
 .cursor__ring {
   position: absolute;
-  width: 36px;
-  height: 36px;
-  margin: -18px 0 0 -18px;
-  border: 1px solid var(--accent);
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 2px solid var(--neon-border-strong, var(--accent));
   border-radius: 50%;
-  opacity: 0.5;
-  transition: transform 0.2s var(--ease-spring), opacity 0.2s, width 0.2s, height 0.2s, margin 0.2s;
+  opacity: 0.82;
+  box-shadow:
+    0 0 0 1px rgba(233, 213, 255, 0.35),
+    0 0 18px rgba(var(--accent-rgb), 0.7),
+    0 0 36px rgba(var(--trust-rgb), 0.45);
+  transition: transform 0.2s var(--ease-spring), opacity 0.2s, width 0.2s, height 0.2s, margin 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.cursor.is-hover .cursor__dot {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.75),
+    0 0 16px rgba(var(--accent-rgb), 1),
+    0 0 32px rgba(var(--trust-rgb), 0.9),
+    0 0 48px rgba(192, 132, 252, 0.65);
 }
 
 .cursor.is-hover .cursor__ring {
-  width: 52px;
-  height: 52px;
-  margin: -26px 0 0 -26px;
-  opacity: 0.85;
+  width: 54px;
+  height: 54px;
+  margin: -27px 0 0 -27px;
+  opacity: 1;
+  border-color: var(--neon-lilac, var(--accent-soft));
+  border-width: 2px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 0 24px rgba(var(--accent-rgb), 0.9),
+    0 0 48px rgba(var(--trust-rgb), 0.65),
+    0 0 72px rgba(192, 132, 252, 0.45);
 }
 
 .scroll-reveal.is-visible {
