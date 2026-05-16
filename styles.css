@@ -314,7 +314,7 @@ main {
   .hero__layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     column-gap: clamp(1.25rem, 3vw, 2.75rem);
     row-gap: clamp(0.35rem, 1.5vw, 0.75rem);
     align-items: start;
@@ -324,24 +324,29 @@ main {
     display: contents;
   }
 
-  .hero__eyebrow {
+  .hero__name {
     grid-column: 1;
     grid-row: 1;
   }
 
-  .hero__title {
+  .hero__eyebrow {
     grid-column: 1;
     grid-row: 2;
   }
 
-  .hero__lead {
+  .hero__title {
     grid-column: 1;
     grid-row: 3;
   }
 
-  .hero__actions {
+  .hero__lead {
     grid-column: 1;
     grid-row: 4;
+  }
+
+  .hero__actions {
+    grid-column: 1;
+    grid-row: 5;
   }
 
   .hero__photo {
@@ -467,7 +472,7 @@ main {
 
   .hero__actions {
     grid-column: 1;
-    grid-row: 4;
+    grid-row: 5;
   }
 }
 
