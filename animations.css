@@ -99,6 +99,9 @@
 .project__media {
   transform-style: preserve-3d;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project.is-hovered .project__media {
   will-change: transform;
 }
 

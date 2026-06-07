@@ -11,6 +11,7 @@
 
   html {
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: auto;
   }
 
   body {
@@ -31,52 +32,105 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Scroll reveal — без blur и без каскадных задержек */
-  .scroll-reveal {
-    transform: translate3d(0, 12px, 0);
-    filter: none !important;
-    transition-duration: var(--scroll-reveal-duration) !important;
-    transition-delay: 0ms !important;
-    will-change: opacity, transform;
-  }
-
+  /* Scroll reveal — без blur, без задержек и без opacity:0 */
+  .scroll-reveal,
   .scroll-reveal.is-visible {
-    transition-duration: var(--scroll-reveal-duration) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
+    will-change: auto !important;
   }
 
   .reveal-on-load,
   .hero-stagger {
     filter: none !important;
-    animation-duration: 0.5s !important;
+    animation-duration: 0.35s !important;
+    animation-delay: 0ms !important;
   }
 
   .hero-stagger {
-    transform: translate3d(0, 10px, 0);
+    transform: none !important;
   }
 
-  /* Фон — меньше нагрузки, без мерцания */
+  /* Фон — статичный, без анимаций и мерцания */
   .bg-base,
   .bg-base::before,
   .bg-base::after,
+  .bg-beams,
   .bg-beams::before,
   .bg-beams::after,
   .bg-aurora,
   .bg-aurora--alt,
   .bg-orb,
   .bg-glyph,
+  .bg-scan,
   .bg-scan::before,
   .bg-scan::after,
   .bg-grid {
-    animation-duration: 28s !important;
-    animation-timing-function: linear !important;
+    animation: none !important;
+  }
+
+  .bg-base {
+    filter: none !important;
+  }
+
+  .bg-beams,
+  .bg-scan,
+  .bg-glyphs {
+    display: none !important;
+  }
+
+  .bg-orb--3,
+  .bg-orb--4 {
+    display: none !important;
+  }
+
+  .bg-aurora,
+  .bg-aurora--alt {
+    filter: blur(36px) saturate(1.08) !important;
+    opacity: 0.32 !important;
   }
 
   .bg-orb {
-    filter: blur(48px) saturate(1.15) !important;
+    filter: blur(32px) saturate(1.05) !important;
   }
 
   .noise {
-    opacity: 0.04;
+    opacity: 0.03;
+  }
+
+  /* Неоновые рамки — без анимации */
+  .card::before,
+  .project::before,
+  .reviews-panel::before,
+  .about__list-wrap::before,
+  .step::before,
+  .why::before,
+  .audience::before,
+  .cta__card::before,
+  .manifest__frame::before {
+    animation: none !important;
+  }
+
+  .about::after,
+  .services::after,
+  .approach::after,
+  .projects::after,
+  .reviews::after,
+  .why::after,
+  .stack::after,
+  .audience::after,
+  .manifest::after,
+  .cta::after {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .site-header__inner {
+    backdrop-filter: none;
+    background: var(--header-glass);
   }
 
   /* Залипание :hover на touch — сброс к базовому виду */
@@ -155,7 +209,6 @@
   .step:hover,
   .about__list-wrap:hover,
   .audience:hover,
-  .contacts:hover,
   .cta__card:hover,
   .manifest__frame:hover,
   .why:hover,
@@ -185,13 +238,13 @@
     animation-duration: 22s !important;
   }
 
-  .badge-wave.is-wave-visible {
-    animation-duration: 0.35s !important;
-    animation-delay: 0ms !important;
+  .badge-wave {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
-  .site-header__inner {
-    backdrop-filter: blur(8px);
+  .badge-wave.is-wave-visible {
+    animation: none !important;
   }
 
   .site-header__tools {
@@ -222,21 +275,20 @@
   }
 }
 
-/* Кастомный курсор на touch — тот же вид, без difference (мерцание) */
+/* Кастомный курсор отключён на touch / mobile */
 html.is-touch .cursor {
-  mix-blend-mode: normal;
-  filter: saturate(1.45) brightness(1.12);
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-html.is-touch.is-cursor-active body,
-html.is-touch.is-cursor-active a,
-html.is-touch.is-cursor-active button,
-html.is-touch.is-cursor-active .btn {
-  cursor: none;
-}
-
-@media (hover: none), (pointer: coarse) {
-  .cursor__ring {
-    opacity: 0.78;
-  }
+html.is-touch body,
+html.is-touch a,
+html.is-touch button,
+html.is-touch .btn,
+html.is-touch .project__media,
+html.is-touch .card,
+html.is-touch .badge {
+  cursor: auto !important;
 }

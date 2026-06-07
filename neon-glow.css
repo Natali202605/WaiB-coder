@@ -84,7 +84,6 @@
 .step,
 .why,
 .audience,
-.contacts,
 .cta__card,
 .manifest__frame {
   position: relative;
@@ -136,21 +135,6 @@
   z-index: 1;
 }
 
-/* Контакты — усиливаем уже существующую градиентную рамку */
-.contacts::before {
-  background: linear-gradient(
-    135deg,
-    var(--neon-blue) 0%,
-    var(--neon-violet) 40%,
-    var(--neon-lilac) 70%,
-    var(--neon-blue) 100%
-  );
-  background-size: 200% 200%;
-  opacity: 0.82;
-  animation: neon-border-flow 6s ease infinite;
-  filter: saturate(1.35);
-}
-
 /* Контент поверх неоновой рамки */
 .card > *,
 .project__body,
@@ -162,7 +146,6 @@
 .why__grid,
 .audience__head,
 .audience__list,
-.contacts > *,
 .cta__card > *,
 .manifest__quote,
 .hero__photo-img,
@@ -186,7 +169,6 @@
 .about__list-wrap:hover,
 .step:hover,
 .audience:hover,
-.contacts:hover,
 .cta__card:hover,
 .manifest__frame:hover {
   border-color: var(--neon-border-strong);
@@ -227,14 +209,9 @@
 .step:hover::before,
 .why:hover::before,
 .audience:hover::before,
-.contacts:hover::before,
 .cta__card:hover::before {
   opacity: 1;
   filter: saturate(1.5);
-}
-
-.contacts:hover::before {
-  opacity: 1;
 }
 
 /* Секции с заливкой */
@@ -633,7 +610,6 @@ button.btn--ghost:hover {
   .step::before,
   .why::before,
   .audience::before,
-  .contacts::before,
   .cta__card::before {
     animation: none;
   }

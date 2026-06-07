@@ -11,6 +11,40 @@
   z-index: 0;
 }
 
+.bg-base,
+.bg-beams,
+.bg-aurora,
+.bg-aurora--alt,
+.bg-glyphs,
+.bg-scan,
+.bg-orbs,
+.bg-mesh,
+.bg-grid,
+.bg-vignette {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+html.is-scrolling .bg-base,
+html.is-scrolling .bg-base::before,
+html.is-scrolling .bg-base::after,
+html.is-scrolling .bg-beams,
+html.is-scrolling .bg-beams::before,
+html.is-scrolling .bg-beams::after,
+html.is-scrolling .bg-aurora,
+html.is-scrolling .bg-aurora--alt,
+html.is-scrolling .bg-orb,
+html.is-scrolling .bg-glyph,
+html.is-scrolling .bg-scan::before,
+html.is-scrolling .bg-scan::after,
+html.is-scrolling .bg-grid {
+  animation-play-state: paused;
+}
+
+html.is-scrolling .bg-base {
+  filter: none;
+}
+
 .bg-base {
   inset: 0;
   background: var(--bg-base);
@@ -338,8 +372,8 @@
 
 /* Keyframes */
 @keyframes base-pulse {
-  0% { filter: brightness(1) saturate(1.1); }
-  100% { filter: brightness(1.08) saturate(1.25); }
+  0% { filter: brightness(1) saturate(1.05); }
+  100% { filter: brightness(1.03) saturate(1.15); }
 }
 
 @keyframes base-pulse-light {

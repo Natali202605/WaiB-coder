@@ -255,20 +255,16 @@ main {
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(28px);
-  filter: blur(4px);
+  transform: translate3d(0, 28px, 0);
   transition:
     opacity 0.75s var(--ease-out-expo),
-    transform 0.75s var(--ease-out-expo),
-    filter 0.75s var(--ease-out-expo);
+    transform 0.75s var(--ease-out-expo);
   transition-delay: var(--scroll-reveal-delay, 0ms);
-  will-change: opacity, transform, filter;
 }
 
 .scroll-reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
+  transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -825,12 +821,18 @@ main {
 }
 
 .project__img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   transition: transform 0.5s var(--ease-out-expo), opacity 0.35s;
+}
+
+.project__media:not(.is-empty) .project__media-fallback {
+  display: none;
 }
 
 .project__media:hover .project__img {
@@ -918,6 +920,18 @@ main {
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--paper-dim);
+}
+
+.project__desc a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project__desc a:hover {
+  color: var(--paper);
+  border-bottom-color: var(--accent);
 }
 
 .project__done {

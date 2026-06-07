@@ -4,10 +4,10 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --ink: #060312;
-  --surface: #10082a;
-  --surface-2: #180f38;
-  --surface-elevated: #22124c;
+  --ink: #020108;
+  --surface: #0a051c;
+  --surface-2: #0f0828;
+  --surface-elevated: #160e38;
 
   --paper: #ffffff;
   --paper-dim: #c8d6ff;
@@ -38,22 +38,22 @@
   --gradient-accent-soft: linear-gradient(120deg, rgba(96, 165, 250, 0.2) 0%, rgba(167, 139, 250, 0.25) 50%, rgba(216, 180, 254, 0.2) 100%);
   --gradient-hero-text: linear-gradient(120deg, #7dd3fc 0%, #c4b5fd 40%, #f0abfc 75%, #faf5ff 100%);
   --gradient-bg:
-    linear-gradient(165deg, #1a0a42 0%, #0e0528 38%, #120638 68%, var(--ink) 100%),
-    radial-gradient(ellipse 130% 90% at 15% -5%, rgba(124, 58, 237, 0.38), transparent 52%),
-    radial-gradient(ellipse 100% 70% at 88% 8%, rgba(139, 92, 246, 0.32), transparent 48%),
-    radial-gradient(ellipse 90% 60% at 55% 105%, rgba(76, 29, 149, 0.45), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 50% 45%, rgba(109, 40, 217, 0.12), transparent 70%),
+    linear-gradient(165deg, #110628 0%, #060316 38%, #0a0424 68%, var(--ink) 100%),
+    radial-gradient(ellipse 130% 90% at 15% -5%, rgba(124, 58, 237, 0.3), transparent 52%),
+    radial-gradient(ellipse 100% 70% at 88% 8%, rgba(139, 92, 246, 0.26), transparent 48%),
+    radial-gradient(ellipse 90% 60% at 55% 105%, rgba(76, 29, 149, 0.36), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 45%, rgba(109, 40, 217, 0.09), transparent 70%),
     var(--ink);
 
   --bg-base: linear-gradient(
       145deg,
-      #2d1268 0%,
-      #16083a 28%,
-      #0a041f 55%,
-      #12052e 78%,
-      #060312 100%
+      #1a0a48 0%,
+      #0d0528 28%,
+      #050214 55%,
+      #0a0318 78%,
+      #020108 100%
     );
-  --aurora-opacity: 0.55;
+  --aurora-opacity: 0.46;
   --orb-blend: screen;
 
   --stroke: rgba(236, 233, 248, 0.1);
@@ -96,12 +96,12 @@
   --mesh-3: rgba(192, 132, 252, 0.18);
   --mesh-4: rgba(96, 165, 250, 0.14);
 
-  --vignette-center: rgba(109, 40, 217, 0.06);
-  --vignette-edge: rgba(4, 2, 12, 0.82);
+  --vignette-center: rgba(109, 40, 217, 0.04);
+  --vignette-edge: rgba(2, 1, 6, 0.9);
   --grid-opacity: 0.26;
   --grid-tint: rgba(167, 139, 250, 0.14);
 
-  --cursor-blend: difference;
+  --cursor-blend: normal;
   --header-glass: color-mix(in srgb, var(--surface) 88%, transparent);
 }
 

@@ -34,7 +34,7 @@
   overflow: hidden;
   transform: rotate(2deg);
   border: 1px solid var(--stroke-strong);
-  background: #060312;
+  background: var(--ink);
   box-shadow:
     var(--shadow-soft),
     var(--shadow-glow),
