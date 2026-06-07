@@ -109,7 +109,6 @@
   .step::before,
   .why::before,
   .audience::before,
-  .cta__card::before,
   .manifest__frame::before {
     animation: none !important;
   }
@@ -122,8 +121,7 @@
   .why::after,
   .stack::after,
   .audience::after,
-  .manifest::after,
-  .cta::after {
+  .manifest::after {
     opacity: 1 !important;
     transition: none !important;
   }
@@ -209,7 +207,6 @@
   .step:hover,
   .about__list-wrap:hover,
   .audience:hover,
-  .cta__card:hover,
   .manifest__frame:hover,
   .why:hover,
   .audience:hover {

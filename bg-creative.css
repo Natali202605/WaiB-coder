@@ -55,7 +55,7 @@ html.is-scrolling .bg-base {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.55;
+  opacity: 0.42;
   background:
     repeating-linear-gradient(
       -18deg,
@@ -82,9 +82,9 @@ html.is-scrolling .bg-base {
   background: linear-gradient(
     108deg,
     transparent 36%,
-    rgba(96, 165, 250, 0.1) 46%,
-    rgba(167, 139, 250, 0.18) 52%,
-    rgba(124, 58, 237, 0.12) 56%,
+    rgba(96, 165, 250, 0.07) 46%,
+    rgba(167, 139, 250, 0.12) 52%,
+    rgba(124, 58, 237, 0.08) 56%,
     transparent 64%
   );
   transform: rotate(-4deg);
@@ -372,8 +372,8 @@ html.is-scrolling .bg-base {
 
 /* Keyframes */
 @keyframes base-pulse {
-  0% { filter: brightness(1) saturate(1.05); }
-  100% { filter: brightness(1.03) saturate(1.15); }
+  0% { filter: brightness(1) saturate(1.02); }
+  100% { filter: brightness(1.01) saturate(1.08); }
 }
 
 @keyframes base-pulse-light {

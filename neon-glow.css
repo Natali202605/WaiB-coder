@@ -9,8 +9,7 @@
 .why,
 .stack,
 .audience,
-.manifest,
-.cta {
+.manifest {
   position: relative;
   isolation: isolate;
 }
@@ -30,14 +29,13 @@
   pointer-events: none;
   opacity: 0;
   background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(124, 58, 237, 0.48), transparent 68%),
-    radial-gradient(ellipse 70% 45% at 85% 90%, rgba(96, 165, 250, 0.38), transparent 65%);
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(124, 58, 237, 0.62), transparent 68%),
+    radial-gradient(ellipse 70% 45% at 85% 90%, rgba(96, 165, 250, 0.52), transparent 65%);
   transition: opacity 0.7s var(--ease-out-expo);
 }
 
 .why::after,
-.manifest::after,
-.cta::after {
+.manifest::after {
   content: "";
   position: absolute;
   inset: -0.35rem;
@@ -46,8 +44,8 @@
   pointer-events: none;
   opacity: 0;
   box-shadow:
-    0 0 100px rgba(124, 58, 237, 0.55),
-    0 0 160px rgba(96, 165, 250, 0.38);
+    0 0 120px rgba(124, 58, 237, 0.72),
+    0 0 190px rgba(96, 165, 250, 0.52);
   transition: opacity 0.7s var(--ease-out-expo);
 }
 
@@ -59,8 +57,7 @@
 .why.scroll-reveal.is-visible::after,
 .stack.scroll-reveal.is-visible::after,
 .audience.scroll-reveal.is-visible::after,
-.manifest.scroll-reveal.is-visible::after,
-.cta.scroll-reveal.is-visible::after {
+.manifest.scroll-reveal.is-visible::after {
   opacity: 1;
 }
 
@@ -84,7 +81,6 @@
 .step,
 .why,
 .audience,
-.cta__card,
 .manifest__frame {
   position: relative;
   border-color: var(--neon-border);
@@ -101,8 +97,7 @@
 .about__list-wrap::before,
 .step::before,
 .why::before,
-.audience::before,
-.cta__card::before {
+.audience::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -124,11 +119,11 @@
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0.92;
+  opacity: 1;
   pointer-events: none;
   z-index: 1;
   animation: neon-border-flow 5s ease infinite;
-  filter: saturate(1.65) brightness(1.08);
+  filter: saturate(1.9) brightness(1.22);
 }
 
 .reviews-panel::before {
@@ -169,7 +164,6 @@
 .about__list-wrap:hover,
 .step:hover,
 .audience:hover,
-.cta__card:hover,
 .manifest__frame:hover {
   border-color: var(--neon-border-strong);
   box-shadow: var(--neon-hover);
@@ -179,18 +173,18 @@
   border-color: var(--neon-border-strong);
   box-shadow:
     var(--neon-shadow-lg),
-    0 0 80px rgba(124, 58, 237, 0.55),
-    0 0 120px rgba(96, 165, 250, 0.35);
-  filter: saturate(1.25);
+    0 0 96px rgba(124, 58, 237, 0.68),
+    0 0 140px rgba(96, 165, 250, 0.45);
+  filter: saturate(1.35);
 }
 
 .hero:hover .hero__photo-frame {
-  border-color: rgba(233, 213, 255, 0.95);
+  border-color: rgba(233, 213, 255, 0.98);
   box-shadow:
     var(--neon-hover),
-    0 0 96px rgba(124, 58, 237, 0.7),
-    0 0 140px rgba(96, 165, 250, 0.45);
-  filter: saturate(1.5);
+    0 0 112px rgba(124, 58, 237, 0.82),
+    0 0 160px rgba(96, 165, 250, 0.55);
+  filter: saturate(1.62);
 }
 
 .hero__photo-glow {
@@ -208,10 +202,9 @@
 .about__list-wrap:hover::before,
 .step:hover::before,
 .why:hover::before,
-.audience:hover::before,
-.cta__card:hover::before {
+.audience:hover::before {
   opacity: 1;
-  filter: saturate(1.5);
+  filter: saturate(1.78) brightness(1.12);
 }
 
 /* Секции с заливкой */
@@ -233,11 +226,11 @@
 
 /* —— Все кнопки: неоновая подсветка (глобально + по блокам) —— */
 :root {
-  --btn-neon-filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.55))
-    drop-shadow(0 0 22px rgba(96, 165, 250, 0.35));
-  --btn-neon-filter-hover: drop-shadow(0 0 14px rgba(124, 58, 237, 0.72))
-    drop-shadow(0 0 28px rgba(96, 165, 250, 0.48))
-    drop-shadow(0 0 40px rgba(192, 132, 252, 0.28));
+  --btn-neon-filter: drop-shadow(0 0 12px rgba(124, 58, 237, 0.72))
+    drop-shadow(0 0 28px rgba(96, 165, 250, 0.52));
+  --btn-neon-filter-hover: drop-shadow(0 0 18px rgba(124, 58, 237, 0.92))
+    drop-shadow(0 0 36px rgba(96, 165, 250, 0.68))
+    drop-shadow(0 0 52px rgba(192, 132, 252, 0.42));
 }
 
 button,
@@ -261,7 +254,7 @@ main a.btn {
   isolation: isolate;
   border-color: var(--neon-border);
   box-shadow: var(--neon-shadow-sm);
-  filter: saturate(1.12) var(--btn-neon-filter);
+  filter: saturate(1.24) var(--btn-neon-filter);
   transition:
     border-color 0.25s ease,
     box-shadow 0.35s var(--ease-out-expo),
@@ -289,9 +282,9 @@ main a.btn:hover {
   border-color: var(--neon-border-strong);
   box-shadow:
     var(--neon-shadow-md),
-    0 0 32px rgba(124, 58, 237, 0.55),
-    0 0 52px rgba(96, 165, 250, 0.38);
-  filter: saturate(1.32) var(--btn-neon-filter-hover);
+    0 0 40px rgba(124, 58, 237, 0.72),
+    0 0 64px rgba(96, 165, 250, 0.52);
+  filter: saturate(1.48) var(--btn-neon-filter-hover);
 }
 
 button:focus-visible,
@@ -453,21 +446,21 @@ button.btn--ghost:hover {
   box-shadow:
     var(--neon-shadow-lg),
     var(--shadow-glow),
-    0 0 56px rgba(96, 165, 250, 0.48);
-  filter: saturate(1.35) var(--btn-neon-filter-hover);
+    0 0 68px rgba(96, 165, 250, 0.62);
+  filter: saturate(1.45) var(--btn-neon-filter-hover);
 }
 
 .hero .btn--primary:hover {
-  box-shadow: var(--neon-hover), var(--shadow-soft), 0 0 80px rgba(96, 165, 250, 0.62);
-  filter: saturate(1.55) var(--btn-neon-filter-hover);
+  box-shadow: var(--neon-hover), var(--shadow-soft), 0 0 96px rgba(96, 165, 250, 0.78);
+  filter: saturate(1.62) var(--btn-neon-filter-hover);
 }
 
 .hero .btn--ghost {
-  box-shadow: var(--neon-shadow-md), 0 0 28px rgba(124, 58, 237, 0.4);
+  box-shadow: var(--neon-shadow-md), 0 0 36px rgba(124, 58, 237, 0.55);
 }
 
 .hero .btn--ghost:hover {
-  box-shadow: var(--neon-shadow-md), 0 0 44px rgba(124, 58, 237, 0.58), 0 0 64px rgba(96, 165, 250, 0.42);
+  box-shadow: var(--neon-shadow-md), 0 0 52px rgba(124, 58, 237, 0.72), 0 0 76px rgba(96, 165, 250, 0.55);
 }
 
 /* —— Отзывы —— */
@@ -506,21 +499,21 @@ button.btn--ghost:hover {
   box-shadow:
     var(--neon-shadow-lg),
     var(--shadow-glow),
-    0 0 60px rgba(96, 165, 250, 0.5);
-  filter: saturate(1.38) var(--btn-neon-filter-hover);
+    0 0 72px rgba(96, 165, 250, 0.65);
+  filter: saturate(1.48) var(--btn-neon-filter-hover);
 }
 
 .cta .btn--primary:hover {
-  box-shadow: var(--neon-hover), 0 0 88px rgba(96, 165, 250, 0.65);
-  filter: saturate(1.58) var(--btn-neon-filter-hover);
+  box-shadow: var(--neon-hover), 0 0 100px rgba(96, 165, 250, 0.82);
+  filter: saturate(1.68) var(--btn-neon-filter-hover);
 }
 
 .cta .btn--ghost {
-  box-shadow: var(--neon-shadow-md), 0 0 32px rgba(124, 58, 237, 0.45);
+  box-shadow: var(--neon-shadow-md), 0 0 40px rgba(124, 58, 237, 0.58);
 }
 
 .cta .btn--ghost:hover {
-  box-shadow: var(--neon-shadow-md), 0 0 48px rgba(124, 58, 237, 0.62), 0 0 68px rgba(96, 165, 250, 0.45);
+  box-shadow: var(--neon-shadow-md), 0 0 56px rgba(124, 58, 237, 0.75), 0 0 80px rgba(96, 165, 250, 0.55);
 }
 
 /* Бейджи и теги */
@@ -570,10 +563,6 @@ button.btn--ghost:hover {
 }
 
 /* CTA и манифест — постоянное усиленное свечение */
-.cta__card {
-  box-shadow: var(--neon-shadow-lg);
-}
-
 .manifest__frame.scroll-reveal.is-visible {
   box-shadow: var(--neon-shadow-lg);
 }
@@ -609,8 +598,7 @@ button.btn--ghost:hover {
   .about__list-wrap::before,
   .step::before,
   .why::before,
-  .audience::before,
-  .cta__card::before {
+  .audience::before {
     animation: none;
   }
 }
@@ -624,8 +612,7 @@ button.btn--ghost:hover {
   .why::after,
   .stack::after,
   .audience::after,
-  .manifest::after,
-  .cta::after {
+  .manifest::after {
     transition: none;
   }
 

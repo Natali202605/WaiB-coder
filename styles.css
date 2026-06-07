@@ -1664,26 +1664,6 @@ main {
   border: 1px solid var(--stroke);
 }
 
-.contacts::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(120deg, var(--blue), transparent 40%, transparent 60%, var(--lilac));
-  opacity: 0.5;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.45;
-  pointer-events: none;
-}
-
 .contacts__text {
   margin: 0 0 1.1rem;
   max-width: 40ch;
