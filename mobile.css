@@ -2,11 +2,14 @@
 
 @media (hover: none), (pointer: coarse), (max-width: 899px) {
   :root {
-    --reveal-duration: 0.42s;
-    --scroll-reveal-duration: 0.42s;
-    --btn-neon-filter: drop-shadow(0 0 6px rgba(124, 58, 237, 0.35))
-      drop-shadow(0 0 14px rgba(96, 165, 250, 0.22));
-    --btn-neon-filter-hover: var(--btn-neon-filter);
+    --reveal-duration: 0s;
+    --scroll-reveal-duration: 0s;
+    --btn-neon-filter: none;
+    --btn-neon-filter-hover: none;
+    --neon-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+    --neon-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.22);
+    --neon-shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.24);
+    --neon-hover: 0 8px 24px rgba(0, 0, 0, 0.28);
   }
 
   html {
@@ -32,7 +35,37 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Scroll reveal — без blur, без задержек и без opacity:0 */
+  /* Контент ниже hero — отложенная отрисовка при скролле */
+  .about,
+  .services,
+  .approach,
+  .projects,
+  .reviews,
+  .why,
+  .stack,
+  .audience,
+  .manifest,
+  .cta,
+  .contacts,
+  .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 480px;
+  }
+
+  .hero {
+    content-visibility: visible;
+  }
+
+  /* Загрузка и scroll reveal — без анимаций и мерцания */
+  .reveal-on-load,
+  .hero-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    animation-delay: 0ms !important;
+  }
+
   .scroll-reveal,
   .scroll-reveal.is-visible {
     opacity: 1 !important;
@@ -43,18 +76,7 @@
     will-change: auto !important;
   }
 
-  .reveal-on-load,
-  .hero-stagger {
-    filter: none !important;
-    animation-duration: 0.35s !important;
-    animation-delay: 0ms !important;
-  }
-
-  .hero-stagger {
-    transform: none !important;
-  }
-
-  /* Фон — статичный, без анимаций и мерцания */
+  /* Фон — один статичный слой, без blur и анимаций */
   .bg-base,
   .bg-base::before,
   .bg-base::after,
@@ -63,45 +85,25 @@
   .bg-beams::after,
   .bg-aurora,
   .bg-aurora--alt,
-  .bg-orb,
-  .bg-glyph,
+  .bg-glyphs,
   .bg-scan,
   .bg-scan::before,
   .bg-scan::after,
-  .bg-grid {
+  .bg-orbs,
+  .bg-grid,
+  .noise {
+    display: none !important;
     animation: none !important;
   }
 
-  .bg-base {
+  .bg-mesh,
+  .bg-vignette {
+    animation: none !important;
     filter: none !important;
+    will-change: auto !important;
   }
 
-  .bg-beams,
-  .bg-scan,
-  .bg-glyphs {
-    display: none !important;
-  }
-
-  .bg-orb--3,
-  .bg-orb--4 {
-    display: none !important;
-  }
-
-  .bg-aurora,
-  .bg-aurora--alt {
-    filter: blur(36px) saturate(1.08) !important;
-    opacity: 0.32 !important;
-  }
-
-  .bg-orb {
-    filter: blur(32px) saturate(1.05) !important;
-  }
-
-  .noise {
-    opacity: 0.03;
-  }
-
-  /* Неоновые рамки — без анимации */
+  /* Неоновые рамки и свечения секций — статичные */
   .card::before,
   .project::before,
   .reviews-panel::before,
@@ -111,6 +113,7 @@
   .audience::before,
   .manifest__frame::before {
     animation: none !important;
+    filter: none !important;
   }
 
   .about::after,
@@ -122,13 +125,31 @@
   .stack::after,
   .audience::after,
   .manifest::after {
-    opacity: 1 !important;
-    transition: none !important;
+    display: none !important;
+  }
+
+  /* Кнопки и интерактив — без filter/drop-shadow (тяжёлый repaint) */
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  a.btn,
+  .theme-switch,
+  .theme-switch__btn,
+  .reviews-slider__dot,
+  .site-header .theme-switch,
+  .site-header .theme-switch__btn {
+    filter: none !important;
   }
 
   .site-header__inner {
     backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     background: var(--header-glass);
+  }
+
+  .scroll-progress {
+    display: none;
   }
 
   /* Залипание :hover на touch — сброс к базовому виду */
@@ -174,7 +195,7 @@
   .contacts__links a:hover,
   .project__link:hover,
   .project__media:hover .project__img {
-    filter: inherit;
+    filter: none !important;
     transform: none;
     opacity: inherit;
   }
@@ -187,13 +208,11 @@
   main a.btn:hover {
     border-color: var(--neon-border);
     box-shadow: var(--neon-shadow-sm);
-    filter: saturate(1.08) var(--btn-neon-filter) !important;
   }
 
   .btn--primary:hover,
   a.btn--primary:hover {
-    box-shadow: var(--neon-shadow-lg), var(--shadow-glow), var(--shadow-soft) !important;
-    filter: saturate(1.12) var(--btn-neon-filter) !important;
+    box-shadow: var(--neon-shadow-md) !important;
   }
 
   .projects-grid.has-focus .project:not(.is-hovered) {
@@ -208,40 +227,85 @@
   .about__list-wrap:hover,
   .audience:hover,
   .manifest__frame:hover,
-  .why:hover,
-  .audience:hover {
+  .why:hover {
     border-color: var(--stroke-strong);
     box-shadow: var(--shadow-soft);
   }
 
-  /* Краткая подсветка только при касании */
-  .is-touch-pressed.btn,
-  .is-touch-pressed.btn--primary,
-  .is-touch-pressed.theme-switch__btn {
+  /* Подсветка при касании — через :active, без JS-классов */
+  .btn:active,
+  a.btn:active,
+  .theme-switch__btn:active,
+  .reviews-slider__btn:active,
+  .reviews-slider__dot:active,
+  .nav a:active {
     border-color: var(--neon-border-strong) !important;
     box-shadow: var(--neon-shadow-md) !important;
-    filter: saturate(1.2) var(--btn-neon-filter) !important;
-  }
-
-  .is-touch-pressed.reviews-slider__dot {
-    transform: scaleX(1.15);
+    transform: scale(0.98);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
   }
 
   .hero__photo-frame {
     transform: rotate(-1deg) !important;
+    box-shadow: var(--shadow-soft), 0 0 32px rgba(124, 58, 237, 0.25) !important;
+    filter: none !important;
+  }
+
+  .hero__photo-glow {
+    display: none !important;
+  }
+
+  .hero__photo-img {
+    filter: saturate(1.05) contrast(1.02) !important;
+    transition: none !important;
   }
 
   .hero__marquee-track {
-    animation-duration: 22s !important;
-  }
-
-  .badge-wave {
-    opacity: 1 !important;
+    animation: none !important;
     transform: none !important;
   }
 
-  .badge-wave.is-wave-visible {
+  .hero__marquee-track span:last-child {
+    display: none;
+  }
+
+  .hero__pulse,
+  .manifest__live,
+  .cta__card::before {
     animation: none !important;
+  }
+
+  .cta__card::before {
+    display: none !important;
+  }
+
+  .hero__title--split [data-hero-split],
+  .hero__title--split .split-char,
+  .hero__title--split .split-word {
+    opacity: 1 !important;
+    will-change: auto !important;
+  }
+
+  .nav a.is-active::after {
+    animation: none !important;
+  }
+
+  .hero__name-first,
+  .hero__title-line1 .split-char,
+  .section-head.is-visible .section-title--large,
+  .scroll-reveal.is-visible .section-head .section-title--large {
+    text-shadow: none !important;
+  }
+
+  .badge-wave,
+  .badge-wave.is-wave-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .steps__progress-fill {
+    transition: height 0.3s ease !important;
   }
 
   .site-header__tools {
@@ -269,6 +333,27 @@
 
   .nav a:hover {
     transform: none;
+  }
+
+  .project__media,
+  .project__img {
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  .reviews-slider__track {
+    transition-duration: 0.28s !important;
+  }
+
+  .site-header {
+    contain: layout style;
+  }
+
+  .card,
+  .project,
+  .reviews-panel,
+  .step {
+    contain: layout style;
   }
 }
 

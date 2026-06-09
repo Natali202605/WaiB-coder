@@ -138,9 +138,6 @@
     navLinks[0] && navLinks[0].classList.add("is-active");
   }
 
-  /* Прогресс шагов */
-  var stepsTicking = false;
-
   function updateStepsProgress() {
     if (!stepsFill || !steps.length) return;
 
@@ -164,16 +161,41 @@
     stepsFill.style.height = (active / steps.length) * 100 + "%";
   }
 
-  function scheduleStepsProgress() {
-    if (stepsTicking) return;
-    stepsTicking = true;
-    requestAnimationFrame(function () {
-      stepsTicking = false;
-      updateStepsProgress();
-    });
-  }
+  /* Шаги «Как я работаю» — IntersectionObserver вместо scroll + getBoundingClientRect */
+  if (isTouch && stepsFill && steps.length && !prefersReduced) {
+    var stepsActive = 0;
 
-  if (isTouch && steps.length) {
+    function applyStepsActive(active) {
+      stepsActive = active;
+      steps.forEach(function (step, i) {
+        step.classList.toggle("is-active", i < active);
+      });
+      stepsFill.style.height = (active / steps.length) * 100 + "%";
+    }
+
+    var stepsObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var idx = Array.prototype.indexOf.call(steps, entry.target);
+          if (idx >= 0 && idx + 1 > stepsActive) {
+            applyStepsActive(idx + 1);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-35% 0px -40% 0px",
+        threshold: 0,
+      }
+    );
+
+    steps.forEach(function (step) {
+      stepsObserver.observe(step);
+    });
+
+    applyStepsActive(steps[0].getBoundingClientRect().top < window.innerHeight ? 1 : 0);
+  } else if (isTouch && steps.length) {
     updateStepsProgress();
   }
 
@@ -386,35 +408,39 @@
 
     requestAnimationFrame(function () {
       scrollScheduled = false;
-      setScrollingState();
 
       var scrollY = window.scrollY;
-      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      var progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
 
-      if (progressBar) {
-        progressBar.style.width = progress + "%";
+      if (!isTouch) {
+        setScrollingState();
+
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+
+        if (progressBar) {
+          progressBar.style.width = progress + "%";
+        }
+
+        if (heroPhoto && !prefersReduced && scrollY < window.innerHeight) {
+          heroPhoto.style.transform =
+            "rotate(" + (2 - scrollY * 0.006) + "deg) translate3d(0," + scrollY * -0.03 + "px,0)";
+        }
+
+        updateStepsProgress();
       }
 
       if (header) {
         header.classList.toggle("is-scrolled", scrollY > 24);
       }
-
-      if (heroPhoto && !prefersReduced && !isTouch && scrollY < window.innerHeight) {
-        heroPhoto.style.transform =
-          "rotate(" + (2 - scrollY * 0.006) + "deg) translate3d(0," + scrollY * -0.03 + "px,0)";
-      }
-
-      if (!isTouch) {
-        updateStepsProgress();
-      } else {
-        scheduleStepsProgress();
-      }
     });
   }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  if (!isTouch) {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  } else if (header) {
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  }
 
   if (heroPhoto && isTouch) {
     heroPhoto.style.transform = "rotate(-1deg)";
@@ -479,24 +505,4 @@
       });
   }
 
-  if (isTouch) {
-    var touchTargets =
-      "a, button, .btn, .card, .project, .badge, .step, .theme-switch__btn, .reviews-slider__btn, .reviews-slider__dot, .theme-switch";
-    document.querySelectorAll(touchTargets).forEach(function (el) {
-      el.addEventListener(
-        "touchstart",
-        function () {
-          el.classList.add("is-touch-pressed");
-        },
-        { passive: true }
-      );
-
-      function clearTouchState() {
-        el.classList.remove("is-touch-pressed");
-      }
-
-      el.addEventListener("touchend", clearTouchState, { passive: true });
-      el.addEventListener("touchcancel", clearTouchState, { passive: true });
-    });
-  }
 })();

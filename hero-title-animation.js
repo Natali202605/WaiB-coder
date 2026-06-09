@@ -17,18 +17,19 @@
     if (title) title.classList.add("is-split-ready", "is-split-done");
   }
 
-  if (prefersReduced || isTouch || typeof gsap === "undefined") {
+  if (prefersReduced || isTouch) {
     showPlain();
     return;
   }
 
-  /* Если GSAP не отработал — показать текст целиком */
-  window.setTimeout(function () {
+  function failSafePlain() {
     var title = document.querySelector(".hero__title--split");
     if (title && !title.classList.contains("is-split-done")) {
       showPlain();
     }
-  }, 4000);
+  }
+
+  window.setTimeout(failSafePlain, 4000);
 
   function splitElement(el, type) {
     var text = el.textContent;
@@ -140,5 +141,26 @@
     }
   }
 
-  whenReady(init);
+  function startWhenReady() {
+    whenReady(function () {
+      if (typeof gsap !== "undefined") {
+        init();
+        return;
+      }
+
+      var waited = 0;
+      var poll = window.setInterval(function () {
+        waited += 40;
+        if (typeof gsap !== "undefined") {
+          window.clearInterval(poll);
+          init();
+        } else if (waited >= 3200) {
+          window.clearInterval(poll);
+          failSafePlain();
+        }
+      }, 40);
+    });
+  }
+
+  startWhenReady();
 })();
